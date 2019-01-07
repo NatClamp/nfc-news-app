@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Nav.css';
+import * as api from '../api';
 import { Link } from '@reach/router';
 
 class Nav extends Component {
@@ -23,6 +24,18 @@ class Nav extends Component {
       </>
     );
   }
+
+  componentDidMount() {
+    this.fetchTopics();
+  }
+
+  fetchTopics = () => {
+    api.getTopics().then(topics =>
+      this.setState({
+        topics,
+      }),
+    );
+  };
 }
 
 export default Nav;
