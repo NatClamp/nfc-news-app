@@ -9,13 +9,14 @@ class Nav extends Component {
   };
   render() {
     const { topics } = this.state;
+    const { navOpen } = this.props;
     return (
       <>
-        <div className='nav blackborder'>
+        <div className={navOpen ? 'nav nav--open' : 'nav'}>
           <h2>Topics</h2>
           {topics.map(topic => {
             return (
-              <p>
+              <p key={topic.slug}>
                 <Link to={`/${topic.slug}`}>{topic.slug}</Link>
               </p>
             );

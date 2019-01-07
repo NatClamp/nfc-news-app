@@ -10,11 +10,14 @@ import Users from './components/Users';
 import User from './components/User';
 
 class App extends Component {
+  state = {
+    navOpen: false,
+  };
   render() {
     return (
       <div className='App'>
-        <Header />
-        <Nav />
+        <Header toggleNav={this.toggleNav} />
+        <Nav navOpen={this.state.navOpen} />
         <Router className='main'>
           <Articles path='/' />
           <Articles path='/:topic' />
@@ -26,6 +29,12 @@ class App extends Component {
       </div>
     );
   }
+
+  toggleNav = () => {
+    this.setState({
+      navOpen: !this.state.navOpen,
+    });
+  };
 }
 
 export default App;

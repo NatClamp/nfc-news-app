@@ -1,32 +1,7 @@
 .App {
   text-align: center;
-  display: grid;
-  height: 100vh;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr 10fr 1fr;
-  grid-template-areas:
-    'header header'
-    'main nav'
-    'footer footer';
 }
 
 .blackborder {
   border: black 1px solid;
-}
-
-.header {
-  grid-area: header;
-}
-
-.nav {
-  grid-area: nav;
-}
-
-.main {
-  grid-area: main;
-  height: 100%;
-}
-
-.footer {
-  grid-area: footer;
 }

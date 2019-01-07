@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Articles.css';
-import * as api from '../api';
 import './Cards.css';
 
 class Cards extends Component {
@@ -10,7 +9,7 @@ class Cards extends Component {
       <div>
         {articles.map(article => {
           return (
-            <article>
+            <article key={article.article_id}>
               {article.title}
               <br />
               {article.author}

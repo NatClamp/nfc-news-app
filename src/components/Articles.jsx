@@ -27,8 +27,10 @@ class Articles extends Component {
     });
   };
 
-  componentDidUpdate() {
-    this.fetchArticles(this.props.topic);
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.topic !== prevProps.topic) {
+      this.fetchArticles(this.props.topic);
+    }
   }
 }
 
