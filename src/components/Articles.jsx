@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import './Articles.css';
 import * as api from '../api';
+import Cards from './Cards';
 
 class Articles extends Component {
   state = {
     articles: [],
   };
   render() {
-    const { articles } = this.state;
     return (
       <main className='blackborder'>
         <h1>Articles Component</h1>
-        {articles.map(article => {
-          return <p>{article.title}</p>;
-        })}
+        <Cards articles={this.state.articles} />
       </main>
     );
   }
-
   componentDidMount() {
     this.fetchArticles(this.props.topic);
   }
