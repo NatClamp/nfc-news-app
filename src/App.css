@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  background-color: #f8f8f8;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .blackborder {
