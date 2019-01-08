@@ -1,0 +1,19 @@
+.content-well {
+  width: 800px;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.content-well__singleArticle {
+  padding: 30px 60px;
+}
+
+.content-well__singleArticle p {
+  text-align: left;
+  line-height: 2em;
+}

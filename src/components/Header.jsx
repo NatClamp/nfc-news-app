@@ -9,8 +9,8 @@ library.add(faBars);
 
 const Header = ({ toggleNav }) => {
   return (
-    <div className='header blackborder'>
-      <h1>Header Component</h1>
+    <div className='header'>
+      <h1>NFC news</h1>
       <button onClick={toggleNav}>
         <FontAwesomeIcon icon='bars' />
       </button>

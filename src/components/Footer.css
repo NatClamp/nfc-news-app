@@ -1,4 +1,10 @@
 .footer__text {
   text-transform: uppercase;
   font-size: 12px;
+  text-align: center;
+}
+
+.footer {
+  margin: 0 auto;
+  width: 100vw;
 }
