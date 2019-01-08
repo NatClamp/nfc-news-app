@@ -13,7 +13,7 @@ import Auth from './components/Auth';
 class App extends Component {
   state = {
     navOpen: false,
-    user: '',
+    user: {},
   };
   render() {
     return (
@@ -34,10 +34,17 @@ class App extends Component {
     );
   }
 
+  componentDidMount() {
+    if (localStorage.getItem('user') && !this.state.user.username) {
+      this.setState({ user: JSON.parse(localStorage.getItem('user')) });
+    }
+  }
+
   login = user => {
     this.setState({
       user,
     });
+    localStorage.setItem('user', JSON.stringify(user));
   };
 
   toggleNav = () => {
