@@ -6,9 +6,10 @@ import * as api from '../api';
 class Article extends Component {
   state = {
     articleData: {},
+    commentData: [],
   };
   render() {
-    const { articleData } = this.state;
+    const { articleData, commentData } = this.state;
     return (
       <section className='content-well'>
         <section className='content-well__singleArticle'>
@@ -22,12 +23,29 @@ class Article extends Component {
           <h4>Votes: {articleData.votes}</h4>
           <p>{articleData.body}</p>
         </section>
+        <section className='content-well__singleArticle'>
+          <h1>Comments</h1>
+          {commentData.map(comment => (
+            <article className='comment'>
+              <section className='comment__header'>
+                {comment.author} |{' '}
+                {moment(comment.created_at).format(
+                  'dddd, MMMM Do YYYY, h:mm a',
+                )}{' '}
+                | votes: {comment.votes}
+              </section>
+              <br />
+              <section className='comment__body'>{comment.body}</section>
+            </article>
+          ))}
+        </section>
       </section>
     );
   }
 
   componentDidMount() {
     this.fetchArticleData(this.props.article_id);
+    this.fetchCommentData(this.props.article_id);
   }
 
   fetchArticleData = article_id => {
@@ -35,6 +53,12 @@ class Article extends Component {
       this.setState({
         articleData,
       });
+    });
+  };
+
+  fetchCommentData = article_id => {
+    api.getComments(article_id).then(commentData => {
+      this.setState({ commentData });
     });
   };
 }

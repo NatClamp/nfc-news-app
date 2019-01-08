@@ -14,5 +14,20 @@
 
 .content-well__singleArticle p {
   text-align: left;
-  line-height: 2em;
+  line-height: 1.5em;
+}
+
+.comment {
+  padding: 10px;
+  margin: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.comment__header {
+  text-align: center;
+}
+
+.comment__body {
+  text-align: left;
+  line-height: 1.5em;
 }
