@@ -8,27 +8,37 @@ import Footer from './components/Footer';
 import Article from './components/Article';
 import Users from './components/Users';
 import User from './components/User';
+import Auth from './components/Auth';
 
 class App extends Component {
   state = {
     navOpen: false,
+    user: '',
   };
   render() {
     return (
       <div className='App'>
-        <Header toggleNav={this.toggleNav} />
-        <Nav navOpen={this.state.navOpen} />
-        <Router className='main'>
-          <Articles path='/' />
-          <Articles path='/:topic' />
-          <Article path='/articles/:article_id' />
-          <Users path='/users' />
-          <User path='/user/:user_id' />
-        </Router>
-        <Footer />
+        <Auth login={this.login} user={this.state.user}>
+          <Header toggleNav={this.toggleNav} />
+          <Nav navOpen={this.state.navOpen} />
+          <Router className='main'>
+            <Articles path='/' />
+            <Articles path='/:topic' />
+            <Article path='/articles/:article_id' />
+            <Users path='/users' />
+            <User path='/user/:username' />
+          </Router>
+          <Footer />
+        </Auth>
       </div>
     );
   }
+
+  login = user => {
+    this.setState({
+      user,
+    });
+  };
 
   toggleNav = () => {
     this.setState({

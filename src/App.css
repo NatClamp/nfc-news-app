@@ -11,3 +11,11 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.button {
+  padding: 5px 7px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  margin: 5px 5px 0 5px;
+}

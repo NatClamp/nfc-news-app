@@ -13,7 +13,7 @@ h1 {
   margin: 0;
 }
 
-button {
+.button__hamburger {
   font-size: 25px;
   padding: 5px;
   margin: 0;

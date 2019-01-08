@@ -11,7 +11,7 @@ const Header = ({ toggleNav }) => {
   return (
     <div className='header'>
       <h1>NFC news</h1>
-      <button onClick={toggleNav}>
+      <button className='button button__hamburger' onClick={toggleNav}>
         <FontAwesomeIcon icon='bars' />
       </button>
     </div>
