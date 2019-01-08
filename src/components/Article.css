@@ -31,3 +31,17 @@
   text-align: left;
   line-height: 1.5em;
 }
+
+.articleElement {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.articleElement * {
+  padding: 7px 15px;
+}
+
+.button--voting {
+}

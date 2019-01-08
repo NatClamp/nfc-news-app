@@ -9,7 +9,7 @@ class Articles extends Component {
   };
   render() {
     return (
-      <section className='content-well blackborder'>
+      <section className='content-well'>
         <Cards articles={this.state.articles} />
       </section>
     );

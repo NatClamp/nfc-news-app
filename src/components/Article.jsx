@@ -13,6 +13,7 @@ class Article extends Component {
     return (
       <section className='content-well'>
         <section className='content-well__singleArticle'>
+          {/* article section */}
           <h1>{articleData.title}</h1>
           <h3>
             {articleData.author} |{' '}
@@ -20,24 +21,30 @@ class Article extends Component {
               'dddd, MMMM Do YYYY, h:mm a',
             )}
           </h3>
-          <h4>Votes: {articleData.votes}</h4>
+          {/* voting */}
+          <section className='articleElement'>
+            <button className='button button--voting'>down</button>
+            <h4>Votes: {articleData.votes}</h4>
+            <button className='button'>up</button>
+          </section>
           <p>{articleData.body}</p>
-        </section>
-        <section className='content-well__singleArticle'>
-          <h1>Comments</h1>
-          {commentData.map(comment => (
-            <article className='comment'>
-              <section className='comment__header'>
-                {comment.author} |{' '}
-                {moment(comment.created_at).format(
-                  'dddd, MMMM Do YYYY, h:mm a',
-                )}{' '}
-                | votes: {comment.votes}
-              </section>
-              <br />
-              <section className='comment__body'>{comment.body}</section>
-            </article>
-          ))}
+          {/* comments section */}
+          <section className=''>
+            <h1>Comments</h1>
+            {commentData.map(comment => (
+              <article className='comment'>
+                <section className='comment__header'>
+                  {comment.author} |{' '}
+                  {moment(comment.created_at).format(
+                    'dddd, MMMM Do YYYY, h:mm a',
+                  )}{' '}
+                  | votes: {comment.votes}
+                </section>
+                <br />
+                <section className='comment__body'>{comment.body}</section>
+              </article>
+            ))}
+          </section>
         </section>
       </section>
     );
