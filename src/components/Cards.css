@@ -4,3 +4,24 @@ article {
   background-color: white;
   text-align: center;
 }
+
+img {
+  height: 50px;
+}
+
+.userCardList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userCard {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.userCard__username {
+  padding: 5px;
+}

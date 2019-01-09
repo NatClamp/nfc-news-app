@@ -27,17 +27,21 @@ class Cards extends Component {
       </>
     ) : (
       <>
-        {users.map(user => {
-          return (
-            <article key={user.user_id}>
-              <img src={user.avatar_url} alt='user_profile_image' />
-              <br />
-              {user.name}
-              <br />
-              {user.username}
-            </article>
-          );
-        })}
+        <main className='userCardList'>
+          {users.map(user => {
+            return (
+              <article key={user.user_id} className='userCard'>
+                <img
+                  src={user.avatar_url}
+                  alt='user_profile_image'
+                  className='userCard__pic'
+                />
+                <br />
+                <p className='userCard__username'>{user.username}</p>
+              </article>
+            );
+          })}
+        </main>
       </>
     );
   }

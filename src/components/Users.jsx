@@ -11,7 +11,7 @@ class Users extends Component {
     const { users } = this.state;
     return (
       <section className='content-well'>
-        <Cards users={users} />;
+        <Cards users={users} />
       </section>
     );
   }
