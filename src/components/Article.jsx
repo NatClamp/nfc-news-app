@@ -26,6 +26,8 @@ class Article extends Component {
           <section className='articleElement'>
             <Voting articleData={articleData} />
           </section>
+          {/* article body */}
+          <p>{articleData.body}</p>
           {/* comments section */}
           <section className=''>
             <h1>Comments</h1>
