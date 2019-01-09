@@ -9,6 +9,8 @@ import Article from './components/Article';
 import Users from './components/Users';
 import User from './components/User';
 import Auth from './components/Auth';
+import PostTopic from './components/PostTopic';
+import PostArticle from './components/PostArticle';
 
 class App extends Component {
   state = {
@@ -25,6 +27,8 @@ class App extends Component {
             <Articles path='/' />
             <Articles path='/:topic' />
             <Article path='/articles/:article_id' />
+            <PostTopic path='/post-topic' />
+            <PostArticle path='/post-article' user={this.state.user} />
             <Users path='/users' />
             <User path='/user/:username' />
           </Router>

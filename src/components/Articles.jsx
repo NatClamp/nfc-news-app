@@ -8,12 +8,14 @@ class Articles extends Component {
     articles: [],
   };
   render() {
+    const { articles } = this.state;
     return (
       <section className='content-well'>
-        <Cards articles={this.state.articles} />
+        <Cards articles={articles} />
       </section>
     );
   }
+
   componentDidMount() {
     this.fetchArticles(this.props.topic);
   }

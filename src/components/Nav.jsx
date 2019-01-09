@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Nav.css';
 import * as api from '../api';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
+import Topic from './Topics';
 
 class Nav extends Component {
   state = {
@@ -14,18 +15,18 @@ class Nav extends Component {
       <>
         <div className={navOpen ? 'nav nav--open' : 'nav'}>
           <h2>Topics</h2>
-          {topics.map(topic => {
-            return (
-              <p key={topic.slug}>
-                <Link to={`/${topic.slug}`}>{topic.slug}</Link>
-              </p>
-            );
-          })}
+          <Topic topics={topics} />
+          <button onClick={this.navPostTopic} className='button'>
+            Create Topic
+          </button>
+          <button onClick={this.navPostArticle} className='button'>
+            Create Article
+          </button>
           <div>
             <h2>Users</h2>
             <Link to='/users'>Users</Link>
           </div>
-          <button onClick={logout} className='button button--logout'>
+          <button onClick={logout} className='button'>
             logout
           </button>
         </div>
@@ -43,6 +44,14 @@ class Nav extends Component {
         topics,
       }),
     );
+  };
+
+  navPostTopic = () => {
+    navigate('/post-topic');
+  };
+
+  navPostArticle = () => {
+    navigate('/post-article');
   };
 }
 

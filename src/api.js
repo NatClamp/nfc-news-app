@@ -7,6 +7,14 @@ export const getTopics = async () => {
   return data.topics;
 };
 
+export const postTopic = async (slug, description) => {
+  const { data } = await axios.post(`${BASE_URL}/topics`, {
+    slug,
+    description,
+  });
+  return data.topic;
+};
+
 export const getArticles = async topic => {
   const URL = topic
     ? `${BASE_URL}/topics/${topic}/articles`
