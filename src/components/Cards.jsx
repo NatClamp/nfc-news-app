@@ -7,6 +7,7 @@ import moment from 'moment';
 class Cards extends Component {
   render() {
     const { articles, users } = this.props;
+    console.log(articles);
     return articles ? (
       <>
         {articles.map(article => {

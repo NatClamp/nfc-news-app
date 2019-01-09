@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Article.css';
 import moment from 'moment';
 import * as api from '../api';
+import Voting from './Voting';
 
 class Article extends Component {
   state = {
@@ -23,16 +24,13 @@ class Article extends Component {
           </h3>
           {/* voting */}
           <section className='articleElement'>
-            <button className='button button--voting'>down</button>
-            <h4>Votes: {articleData.votes}</h4>
-            <button className='button'>up</button>
+            <Voting articleData={articleData} />
           </section>
-          <p>{articleData.body}</p>
           {/* comments section */}
           <section className=''>
             <h1>Comments</h1>
             {commentData.map(comment => (
-              <article className='comment'>
+              <article key={comment.comment_id} className='comment'>
                 <section className='comment__header'>
                   {comment.author} |{' '}
                   {moment(comment.created_at).format(
