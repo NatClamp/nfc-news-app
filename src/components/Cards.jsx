@@ -6,8 +6,8 @@ import moment from 'moment';
 
 class Cards extends Component {
   render() {
-    const { articles } = this.props;
-    return (
+    const { articles, users } = this.props;
+    return articles ? (
       <>
         {articles.map(article => {
           return (
@@ -21,6 +21,20 @@ class Cards extends Component {
                   'dddd, MMMM Do YYYY, h:mm a',
                 )}
               </Link>
+            </article>
+          );
+        })}
+      </>
+    ) : (
+      <>
+        {users.map(user => {
+          return (
+            <article key={user.user_id}>
+              <img src={user.avatar_url} alt='user_profile_image' />
+              <br />
+              {user.name}
+              <br />
+              {user.username}
             </article>
           );
         })}

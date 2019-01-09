@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Users.css';
 import * as api from '../api';
+import Cards from './Cards';
 
 class Users extends Component {
   state = {
@@ -10,9 +11,7 @@ class Users extends Component {
     const { users } = this.state;
     return (
       <section className='content-well'>
-        {users.map(user => {
-          return <p>{user.username}</p>;
-        })}
+        <Cards users={users} />;
       </section>
     );
   }
