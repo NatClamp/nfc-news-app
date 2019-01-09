@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import './Nav.css';
-import * as api from '../api';
+// import * as api from '../api';
 import { Link, navigate } from '@reach/router';
 import Topic from './Topics';
 
 class Nav extends Component {
-  state = {
-    topics: [],
-  };
   render() {
-    const { topics } = this.state;
-    const { navOpen, logout } = this.props;
+    const { navOpen, logout, topics } = this.props;
     return (
       <>
         <div className={navOpen ? 'nav nav--open' : 'nav'}>
@@ -33,18 +29,6 @@ class Nav extends Component {
       </>
     );
   }
-
-  componentDidMount() {
-    this.fetchTopics();
-  }
-
-  fetchTopics = () => {
-    api.getTopics().then(topics =>
-      this.setState({
-        topics,
-      }),
-    );
-  };
 
   navPostTopic = () => {
     navigate('/post-topic');

@@ -28,6 +28,14 @@ export const getArticle = async article_id => {
   return data.articles;
 };
 
+export const postArticle = async (topic, newArticle) => {
+  const { data } = await axios.post(
+    `${BASE_URL}/topics/${topic}/articles`,
+    newArticle,
+  );
+  return data.article;
+};
+
 export const getComments = async article_id => {
   const { data } = await axios.get(
     `${BASE_URL}/articles/${article_id}/comments`,

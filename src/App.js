@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Router } from '@reach/router';
 import './App.css';
+import * as api from './api';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import Articles from './components/Articles';
@@ -16,19 +17,28 @@ class App extends Component {
   state = {
     navOpen: false,
     user: {},
+    topics: [],
   };
   render() {
     return (
       <div className='App'>
         <Auth login={this.login} user={this.state.user}>
           <Header toggleNav={this.toggleNav} />
-          <Nav navOpen={this.state.navOpen} logout={this.logout} />
+          <Nav
+            navOpen={this.state.navOpen}
+            logout={this.logout}
+            topics={this.state.topics}
+          />
           <Router className='main'>
             <Articles path='/' />
             <Articles path='/:topic' />
             <Article path='/articles/:article_id' />
             <PostTopic path='/post-topic' />
-            <PostArticle path='/post-article' user={this.state.user} />
+            <PostArticle
+              path='/post-article'
+              user={this.state.user}
+              topics={this.state.topics}
+            />
             <Users path='/users' />
             <User path='/user/:username' />
           </Router>
@@ -39,6 +49,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.fetchTopics();
     if (localStorage.getItem('user') && !this.state.user.username) {
       this.setState({ user: JSON.parse(localStorage.getItem('user')) });
     }
@@ -54,6 +65,14 @@ class App extends Component {
   logout = () => {
     this.setState({ user: {} });
     localStorage.clear();
+  };
+
+  fetchTopics = () => {
+    api.getTopics().then(topics =>
+      this.setState({
+        topics,
+      }),
+    );
   };
 
   toggleNav = () => {
