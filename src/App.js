@@ -20,7 +20,7 @@ class App extends Component {
       <div className='App'>
         <Auth login={this.login} user={this.state.user}>
           <Header toggleNav={this.toggleNav} />
-          <Nav navOpen={this.state.navOpen} />
+          <Nav navOpen={this.state.navOpen} logout={this.logout} />
           <Router className='main'>
             <Articles path='/' />
             <Articles path='/:topic' />
@@ -45,6 +45,11 @@ class App extends Component {
       user,
     });
     localStorage.setItem('user', JSON.stringify(user));
+  };
+
+  logout = () => {
+    this.setState({ user: {} });
+    localStorage.clear();
   };
 
   toggleNav = () => {

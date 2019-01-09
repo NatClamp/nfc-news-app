@@ -9,7 +9,7 @@ class Nav extends Component {
   };
   render() {
     const { topics } = this.state;
-    const { navOpen } = this.props;
+    const { navOpen, logout } = this.props;
     return (
       <>
         <div className={navOpen ? 'nav nav--open' : 'nav'}>
@@ -25,6 +25,9 @@ class Nav extends Component {
             <h2>Users</h2>
             <Link to='/users'>Users</Link>
           </div>
+          <button onClick={logout} className='button button--logout'>
+            logout
+          </button>
         </div>
       </>
     );
