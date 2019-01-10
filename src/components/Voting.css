@@ -1,0 +1,10 @@
+.articleElement {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.articleElement * {
+  padding: 7px 15px;
+}

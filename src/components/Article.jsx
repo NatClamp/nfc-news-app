@@ -3,6 +3,7 @@ import './Article.css';
 import moment from 'moment';
 import * as api from '../api';
 import Voting from './Voting';
+import Comments from './Comments';
 
 class Article extends Component {
   state = {
@@ -30,20 +31,7 @@ class Article extends Component {
           <p>{articleData.body}</p>
           {/* comments section */}
           <section className=''>
-            <h1>Comments</h1>
-            {commentData.map(comment => (
-              <article key={comment.comment_id} className='comment'>
-                <section className='comment__header'>
-                  {comment.author} |{' '}
-                  {moment(comment.created_at).format(
-                    'dddd, MMMM Do YYYY, h:mm a',
-                  )}{' '}
-                  | votes: {comment.votes}
-                </section>
-                <br />
-                <section className='comment__body'>{comment.body}</section>
-              </article>
-            ))}
+            <Comments commentData={commentData} />
           </section>
         </section>
       </section>
@@ -64,9 +52,12 @@ class Article extends Component {
   };
 
   fetchCommentData = article_id => {
-    api.getComments(article_id).then(commentData => {
-      this.setState({ commentData });
-    });
+    api
+      .getComments(article_id)
+      .then(commentData => {
+        this.setState({ commentData });
+      })
+      .catch(err => console.log(err));
   };
 }
 

@@ -10,27 +10,15 @@ class PostArticle extends Component {
   };
   render() {
     const { topics } = this.props;
-    const { articlePosted } = this.state;
+    // const { articlePosted } = this.state;
     return (
       <section className='content-well'>
         <h1>Post an Article</h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor='title'>Title:</label>
-          <input
-            // onChange={this.handleTitleChange}
-            type='text'
-            id='title'
-            // value={this.state.title}
-            required
-          />
+          <input type='text' id='title' required />
           <label htmlFor='body'>Body:</label>
-          <input
-            // onChange={this.handleBodyChange}
-            type='text'
-            id='body'
-            // value={this.state.body}
-            required
-          />
+          <input type='text' id='body' required />
           <label htmlFor='topic'>Topic:</label>
           <select id='topic'>
             {topics.map(topic => {
@@ -43,11 +31,11 @@ class PostArticle extends Component {
           </select>
           <button type='submit'>Post Article</button>
         </form>
-        {articlePosted && (
+        {/* {articlePosted && (
           <section>
             <h1>Successfully Posted!</h1>
           </section>
-        )}
+        )} */}
       </section>
     );
   }

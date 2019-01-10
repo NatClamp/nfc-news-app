@@ -9,11 +9,15 @@ class Voting extends Component {
     const { articleData } = this.props;
     const { voteChange } = this.state;
     return (
-      <section>
+      <section className='articleElement'>
         <h1>Let's vote</h1>
-        <button onClick={() => this.vote(1)}>Up</button>
+        <button onClick={() => this.vote(1)} disabled={voteChange === 1}>
+          Up
+        </button>
         <p>Votes: {articleData.votes + voteChange}</p>
-        <button onClick={() => this.vote(-1)}>Down</button>
+        <button onClick={() => this.vote(-1)} disabled={voteChange === -1}>
+          Down
+        </button>
       </section>
     );
   }
