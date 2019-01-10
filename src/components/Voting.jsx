@@ -6,7 +6,7 @@ class Voting extends Component {
     voteChange: 0,
   };
   render() {
-    const { id, votes, type } = this.props;
+    const { votes } = this.props;
     const { voteChange } = this.state;
     return (
       <section className='articleElement'>

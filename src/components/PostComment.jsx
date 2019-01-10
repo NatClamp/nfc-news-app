@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as api from '../api';
-// import { navigate } from '@reach/router';
 
 class PostComment extends Component {
   state = {
@@ -28,18 +27,16 @@ class PostComment extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // const body = event.target.body.value;
     const body = this.state.commentBody;
     const user_id = this.props.user_id;
     const article_id = this.props.articleData.article_id;
     api.postComment(article_id, { user_id, body }).then(comment => {
-      //   navigate(`/articles/${article_id}`);
       this.setState(() => ({ commentBody: '' }));
+      this.props.fetchComments(article_id);
     });
   };
 
   handleChange = event => {
-    // console.log(event.target.value);
     const newVal = event.target.value;
     this.setState(() => ({ commentBody: newVal }));
   };

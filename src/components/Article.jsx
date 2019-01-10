@@ -41,6 +41,7 @@ class Article extends Component {
               commentData={commentData}
               user_id={user.user_id}
               articleData={articleData}
+              fetchComments={this.fetchCommentData}
             />
           </section>
         </section>
@@ -71,7 +72,7 @@ class Article extends Component {
   };
 
   // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.commentData !== this.state.commentData) {
+  //   if (prevState.commentData.length !== this.state.commentData.length) {
   //     // this.fetchCommentData(this.props.article_id);
   //     console.log('fetch data');
   //   }
