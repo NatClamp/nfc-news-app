@@ -12,6 +12,7 @@ import User from './components/User';
 import Auth from './components/Auth';
 import PostTopic from './components/PostTopic';
 import PostArticle from './components/PostArticle';
+import Error from './components/Errors';
 
 class App extends Component {
   state = {
@@ -41,6 +42,7 @@ class App extends Component {
             />
             <Users path='/users' />
             <User path='/user/:username' />
+            <Error path='/404' default />
           </Router>
           <Footer />
         </Auth>
@@ -68,11 +70,14 @@ class App extends Component {
   };
 
   fetchTopics = () => {
-    api.getTopics().then(topics =>
-      this.setState({
-        topics,
-      }),
-    );
+    api
+      .getTopics()
+      .then(topics =>
+        this.setState({
+          topics,
+        }),
+      )
+      .catch(err => this.props.navigate('/404', { replace: true }));
   };
 
   toggleNav = () => {
