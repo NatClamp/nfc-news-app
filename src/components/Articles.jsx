@@ -22,6 +22,7 @@ class Articles extends Component {
 
   fetchArticles = topic => {
     api.getArticles(topic).then(articles => {
+      articles = !Array.isArray(articles) ? [articles] : articles;
       this.setState({
         articles,
       });
