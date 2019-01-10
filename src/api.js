@@ -43,6 +43,14 @@ export const getComments = async article_id => {
   return data.comments;
 };
 
+export const postComment = async (article_id, newComment) => {
+  const { data } = await axios.post(
+    `${BASE_URL}/articles/${article_id}/comments`,
+    newComment,
+  );
+  return data.comment;
+};
+
 export const getAllUsers = async () => {
   const { data } = await axios.get(`${BASE_URL}/users`);
   return data.users;

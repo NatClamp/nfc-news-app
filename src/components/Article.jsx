@@ -12,6 +12,7 @@ class Article extends Component {
   };
   render() {
     const { articleData, commentData } = this.state;
+    const { user } = this.props;
     return (
       <section className='content-well'>
         <section className='content-well__singleArticle'>
@@ -31,7 +32,11 @@ class Article extends Component {
           <p>{articleData.body}</p>
           {/* comments section */}
           <section className=''>
-            <Comments commentData={commentData} />
+            <Comments
+              commentData={commentData}
+              user_id={user.user_id}
+              articleData={articleData}
+            />
           </section>
         </section>
       </section>
@@ -59,6 +64,12 @@ class Article extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState !== this.state) {
+      this.fetchCommentData(this.props.article_id);
+    }
+  }
 }
 
 export default Article;
