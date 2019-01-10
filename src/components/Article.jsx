@@ -10,7 +10,6 @@ class Article extends Component {
   state = {
     articleData: {},
     commentData: [],
-    newCommentPosted: false,
   };
   render() {
     const { articleData, commentData } = this.state;
