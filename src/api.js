@@ -61,19 +61,12 @@ export const getUser = async username => {
   return data.users;
 };
 
-export const vote = async (article_id, inc_votes) => {
-  const { data } = await axios.patch(`${BASE_URL}/articles/${article_id}`, {
+export const vote = async (article_id, inc_votes, comment_id) => {
+  const URL = comment_id
+    ? `${BASE_URL}/articles/${article_id}/comments/${comment_id}`
+    : `${BASE_URL}/articles/${article_id}`;
+  const { data } = await axios.patch(URL, {
     inc_votes,
   });
-  return data.article;
-};
-
-export const commentVote = async (article_id, comment_id, inc_votes) => {
-  const { data } = await axios.patch(
-    `${BASE_URL}/articles/${article_id}/comments/${comment_id}`,
-    {
-      inc_votes,
-    },
-  );
-  return data.comment;
+  return comment_id ? data.comment : data.article;
 };

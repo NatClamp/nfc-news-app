@@ -23,33 +23,23 @@ class Voting extends Component {
   }
 
   vote = increment => {
-    const { id, votes, type, commentId } = this.props;
+    const { id, type, commentId } = this.props;
     const { voteChange } = this.state;
-    type === 'comment'
-      ? api
-          .commentVote(id, commentId, increment)
-          .catch(err =>
-            this.setState(state => ({
-              voteChange: voteChange - increment,
-            })),
-          )
-          .then(
-            this.setState(state => ({
-              voteChange: voteChange + increment,
-            })),
-          )
-      : api
-          .vote(id, increment)
-          .catch(err =>
-            this.setState(state => ({
-              voteChange: voteChange - increment,
-            })),
-          )
-          .then(
-            this.setState(state => ({
-              voteChange: voteChange + increment,
-            })),
-          );
+    const apiCall =
+      type === 'comment'
+        ? api.vote(id, increment, commentId)
+        : api.vote(id, increment);
+    apiCall
+      .catch(err =>
+        this.setState(state => ({
+          voteChange: voteChange - increment,
+        })),
+      )
+      .then(
+        this.setState(state => ({
+          voteChange: voteChange + increment,
+        })),
+      );
   };
 }
 
