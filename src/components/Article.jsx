@@ -9,6 +9,7 @@ class Article extends Component {
   state = {
     articleData: {},
     commentData: [],
+    newCommentPosted: false,
   };
   render() {
     const { articleData, commentData } = this.state;
@@ -65,11 +66,12 @@ class Article extends Component {
       .catch(err => console.log(err));
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState !== this.state) {
-      this.fetchCommentData(this.props.article_id);
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.commentData !== this.state.commentData) {
+  //     // this.fetchCommentData(this.props.article_id);
+  //     console.log('fetch data');
+  //   }
+  // }
 }
 
 export default Article;

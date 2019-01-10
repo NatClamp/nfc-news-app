@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import './Comments.css';
 import PostComment from './PostComment';
+import Voting from './Voting';
 
 class Comments extends Component {
   render() {
@@ -19,6 +20,7 @@ class Comments extends Component {
             </section>
             <br />
             <section className='comment__body'>{comment.body}</section>
+            <Voting articleData={articleData} commentData={comment} />
           </article>
         ))}
       </>

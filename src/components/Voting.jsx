@@ -6,7 +6,7 @@ class Voting extends Component {
     voteChange: 0,
   };
   render() {
-    const { articleData } = this.props;
+    const { articleData, commentData } = this.props;
     const { voteChange } = this.state;
     return (
       <section className='articleElement'>
@@ -23,16 +23,37 @@ class Voting extends Component {
   }
 
   vote = increment => {
-    const { articleData } = this.props;
+    const { articleData, commentData } = this.props;
     const { voteChange } = this.state;
-    api.vote(articleData.article_id, increment).catch(err =>
-      this.setState(state => ({
-        voteChange: voteChange - increment,
-      })),
-    );
-    this.setState(state => ({
-      voteChange: voteChange + increment,
-    }));
+    commentData
+      ? api
+          .commentVote(
+            articleData.article_id,
+            commentData.comment_id,
+            increment,
+          )
+          .catch(err =>
+            this.setState(state => ({
+              voteChange: voteChange - increment,
+            })),
+          )
+          .then(
+            this.setState(state => ({
+              voteChange: voteChange + increment,
+            })),
+          )
+      : api
+          .vote(articleData.article_id, increment)
+          .catch(err =>
+            this.setState(state => ({
+              voteChange: voteChange - increment,
+            })),
+          )
+          .then(
+            this.setState(state => ({
+              voteChange: voteChange + increment,
+            })),
+          );
   };
 }
 

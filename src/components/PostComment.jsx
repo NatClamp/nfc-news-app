@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../api';
-import { navigate } from '@reach/router';
+// import { navigate } from '@reach/router';
 
 class PostComment extends Component {
   state = {
@@ -40,7 +40,8 @@ class PostComment extends Component {
 
   handleChange = event => {
     // console.log(event.target.value);
-    this.setState({ commentBody: event.target.value });
+    const newVal = event.target.value;
+    this.setState(() => ({ commentBody: newVal }));
   };
 }
 
