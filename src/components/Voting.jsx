@@ -6,7 +6,7 @@ class Voting extends Component {
     voteChange: 0,
   };
   render() {
-    const { articleData, commentData } = this.props;
+    const { id, votes, type } = this.props;
     const { voteChange } = this.state;
     return (
       <section className='articleElement'>
@@ -14,7 +14,7 @@ class Voting extends Component {
         <button onClick={() => this.vote(1)} disabled={voteChange === 1}>
           Up
         </button>
-        <p>Votes: {articleData.votes + voteChange}</p>
+        <p>Votes: {votes + voteChange}</p>
         <button onClick={() => this.vote(-1)} disabled={voteChange === -1}>
           Down
         </button>
@@ -23,15 +23,11 @@ class Voting extends Component {
   }
 
   vote = increment => {
-    const { articleData, commentData } = this.props;
+    const { id, votes, type, commentId } = this.props;
     const { voteChange } = this.state;
-    commentData
+    type === 'comment'
       ? api
-          .commentVote(
-            articleData.article_id,
-            commentData.comment_id,
-            increment,
-          )
+          .commentVote(id, commentId, increment)
           .catch(err =>
             this.setState(state => ({
               voteChange: voteChange - increment,
@@ -43,7 +39,7 @@ class Voting extends Component {
             })),
           )
       : api
-          .vote(articleData.article_id, increment)
+          .vote(id, increment)
           .catch(err =>
             this.setState(state => ({
               voteChange: voteChange - increment,

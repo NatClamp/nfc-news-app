@@ -20,7 +20,13 @@ class Comments extends Component {
             </section>
             <br />
             <section className='comment__body'>{comment.body}</section>
-            <Voting articleData={articleData} commentData={comment} />
+            <Voting
+              //   articleData={articleData}
+              votes={comment.votes}
+              id={articleData.article_id}
+              commentId={comment.comment_id}
+              type={'comment'}
+            />
           </article>
         ))}
       </>

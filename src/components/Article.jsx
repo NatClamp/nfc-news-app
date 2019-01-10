@@ -27,7 +27,11 @@ class Article extends Component {
           </h3>
           {/* voting */}
           <section className='articleElement'>
-            <Voting articleData={articleData} />
+            <Voting
+              votes={articleData.votes}
+              id={articleData.article_id}
+              type={'article'}
+            />
           </section>
           {/* article body */}
           <p>{articleData.body}</p>
