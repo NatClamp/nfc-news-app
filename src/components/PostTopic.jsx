@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../api';
-// import { navigate } from '@reach/router';
+import { Link } from '@reach/router';
 
 class PostTopic extends Component {
   state = {
@@ -21,13 +21,16 @@ class PostTopic extends Component {
         </form>
       </section>
     ) : (
-      <>
-        <div>
-          <h1>Topic Posted</h1>
+      <section className='content-well'>
+        <article className='newTopic'>
           <p>{topic.slug}</p>
           <p>{topic.description}</p>
-        </div>
-      </>
+        </article>
+        <h1>
+          Why not post an article in your new{' '}
+          <Link to='/post-article'>topic</Link>?
+        </h1>
+      </section>
     );
   }
 
@@ -39,6 +42,12 @@ class PostTopic extends Component {
       this.setState(() => ({ topic, postComplete: true }));
     });
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.postComplete !== this.state.postComplete) {
+      this.props.fetchTopics();
+    }
+  }
 }
 
 export default PostTopic;

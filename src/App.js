@@ -33,7 +33,7 @@ class App extends Component {
             <Articles path='/' />
             <Articles path='/:topic' />
             <Article path='/articles/:article_id' user={this.state.user} />
-            <PostTopic path='/post-topic' />
+            <PostTopic path='/post-topic' fetchTopics={this.fetchTopics} />
             <PostArticle
               path='/post-article'
               user={this.state.user}
