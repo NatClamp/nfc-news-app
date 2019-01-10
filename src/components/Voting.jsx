@@ -11,11 +11,19 @@ class Voting extends Component {
     return (
       <section className='articleElement'>
         <h1>Let's vote</h1>
-        <button onClick={() => this.vote(1)} disabled={voteChange === 1}>
+        <button
+          className='button'
+          onClick={() => this.vote(1)}
+          disabled={voteChange === 1}
+        >
           Up
         </button>
         <p>Votes: {votes + voteChange}</p>
-        <button onClick={() => this.vote(-1)} disabled={voteChange === -1}>
+        <button
+          className='button'
+          onClick={() => this.vote(-1)}
+          disabled={voteChange === -1}
+        >
           Down
         </button>
       </section>

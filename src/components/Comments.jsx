@@ -3,6 +3,7 @@ import moment from 'moment';
 import './Comments.css';
 import PostComment from './PostComment';
 import Voting from './Voting';
+import * as api from '../api';
 
 class Comments extends Component {
   render() {
@@ -30,11 +31,25 @@ class Comments extends Component {
               commentId={comment.comment_id}
               type={'comment'}
             />
+            <br />
+            <button
+              className='button'
+              onClick={() => this.handleDelete(comment.comment_id)}
+            >
+              Delete
+            </button>
           </article>
         ))}
       </>
     );
   }
+
+  handleDelete = comment_id => {
+    const { articleData, fetchComments } = this.props;
+    api.deleteComment(articleData.article_id, comment_id).then(() => {
+      fetchComments(articleData.article_id);
+    });
+  };
 }
 
 export default Comments;

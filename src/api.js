@@ -70,3 +70,11 @@ export const vote = async (article_id, inc_votes, comment_id) => {
   });
   return comment_id ? data.comment : data.article;
 };
+
+export const deleteComment = async (article_id, comment_id) => {
+  // console.log('deleting...');
+  const { data } = await axios.delete(
+    `${BASE_URL}/articles/${article_id}/comments/${comment_id}`,
+  );
+  return data;
+};
