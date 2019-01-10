@@ -4,6 +4,7 @@ import moment from 'moment';
 import * as api from '../api';
 import Voting from './Voting';
 import Comments from './Comments';
+import { navigate } from '@reach/router';
 
 class Article extends Component {
   state = {
@@ -32,6 +33,14 @@ class Article extends Component {
               id={articleData.article_id}
               type={'article'}
             />
+          </section>
+          <section>
+            <button
+              className='button'
+              onClick={() => this.handleDelete(this.props.article_id)}
+            >
+              Delete
+            </button>
           </section>
           {/* article body */}
           <p>{articleData.body}</p>
@@ -71,12 +80,11 @@ class Article extends Component {
       .catch(err => console.log(err));
   };
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.commentData.length !== this.state.commentData.length) {
-  //     // this.fetchCommentData(this.props.article_id);
-  //     console.log('fetch data');
-  //   }
-  // }
+  handleDelete = article_id => {
+    api.deleteArticle(article_id).then(data => {
+      navigate('/');
+    });
+  };
 }
 
 export default Article;
