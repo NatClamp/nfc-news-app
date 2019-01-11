@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router } from '@reach/router';
+import { Router, navigate } from '@reach/router';
 import './App.css';
 import * as api from './api';
 import Header from './components/Header';
@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className='App'>
         <Auth login={this.login} user={this.state.user}>
-          <Header toggleNav={this.toggleNav} />
+          <Header toggleNav={this.toggleNav} goHome={this.goHome} />
           <Nav
             navOpen={this.state.navOpen}
             logout={this.logout}
@@ -84,6 +84,10 @@ class App extends Component {
     this.setState({
       navOpen: !this.state.navOpen,
     });
+  };
+
+  goHome = () => {
+    navigate('/');
   };
 }
 
