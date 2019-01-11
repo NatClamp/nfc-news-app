@@ -12,7 +12,7 @@ import User from './components/User';
 import Auth from './components/Auth';
 import PostTopic from './components/PostTopic';
 import PostArticle from './components/PostArticle';
-import Error from './components/Errors';
+import Errors from './components/Errors';
 
 class App extends Component {
   state = {
@@ -42,7 +42,7 @@ class App extends Component {
             />
             <Users path='/users' />
             <User path='/user/:username' />
-            <Error path='/404' />
+            <Errors path='/404' />
           </Router>
           <Footer />
         </Auth>

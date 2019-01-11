@@ -53,7 +53,7 @@ class Articles extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.topic !== prevProps.topic) {
-      this.setState({ currentPage: 1 }, () => {
+      this.setState({ currentPage: 1, err: null }, () => {
         this.fetchArticles(this.props.topic);
       });
     }
