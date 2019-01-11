@@ -24,8 +24,7 @@ class Comments extends Component {
                 {comment.author} |{' '}
                 {moment(comment.created_at).format(
                   'dddd, MMMM Do YYYY, h:mm a',
-                )}{' '}
-                | votes: {comment.votes}
+                )}
               </section>
               <br />
               <section className='comment__body'>{comment.body}</section>
