@@ -7,7 +7,13 @@ import * as api from '../api';
 
 class Comments extends Component {
   render() {
-    let { commentData, user_id, articleData, fetchComments } = this.props;
+    let {
+      commentData,
+      user_id,
+      username,
+      articleData,
+      fetchComments,
+    } = this.props;
     commentData = !Array.isArray(commentData) ? [commentData] : commentData;
     return (
       <>
@@ -35,12 +41,14 @@ class Comments extends Component {
                 type={'comment'}
               />
               <br />
-              <button
-                className='button'
-                onClick={() => this.handleDelete(comment.comment_id)}
-              >
-                Delete
-              </button>
+              {username === comment.author && (
+                <button
+                  className='button'
+                  onClick={() => this.handleDelete(comment.comment_id)}
+                >
+                  Delete
+                </button>
+              )}
             </article>
           ))}
       </>

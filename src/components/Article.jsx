@@ -35,12 +35,14 @@ class Article extends Component {
                   )}{' '}
                   | {articleData.topic} |{' '}
                 </section>
-                <button
-                  className='button button--delete'
-                  onClick={() => this.handleDelete(this.props.article_id)}
-                >
-                  Delete
-                </button>
+                {user.username === articleData.author && (
+                  <button
+                    className='button button--delete'
+                    onClick={() => this.handleDelete(this.props.article_id)}
+                  >
+                    Delete
+                  </button>
+                )}
               </section>
             </section>
           </section>
@@ -51,6 +53,7 @@ class Article extends Component {
             <Comments
               commentData={commentData}
               user_id={user.user_id}
+              username={user.username}
               articleData={articleData}
               fetchComments={this.fetchCommentData}
             />
