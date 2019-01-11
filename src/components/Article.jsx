@@ -63,26 +63,29 @@ class Article extends Component {
   }
 
   fetchArticleData = article_id => {
-    api.getArticle(article_id).then(articleData => {
-      this.setState({
-        articleData,
-      });
-    });
+    api
+      .getArticle(article_id)
+      .then(articleData => {
+        this.setState({
+          articleData,
+        });
+      })
+      .catch(err => navigate('/404', { replace: true }));
   };
 
   fetchCommentData = article_id => {
-    api
-      .getComments(article_id)
-      .then(commentData => {
-        this.setState({ commentData });
-      })
-      .catch(err => console.log(err));
+    api.getComments(article_id).then(commentData => {
+      this.setState({ commentData });
+    });
   };
 
   handleDelete = article_id => {
-    api.deleteArticle(article_id).then(data => {
-      navigate('/');
-    });
+    api
+      .deleteArticle(article_id)
+      .then(data => {
+        navigate('/');
+      })
+      .catch(err => this.props.navigate('/404', { replace: true }));
   };
 }
 
