@@ -42,7 +42,7 @@ class App extends Component {
             />
             <Users path='/users' />
             <User path='/user/:username' />
-            <Error path='/404' default />
+            <Error path='/404' />
           </Router>
           <Footer />
         </Auth>

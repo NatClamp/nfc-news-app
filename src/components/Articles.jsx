@@ -30,13 +30,15 @@ class Articles extends Component {
       this.state.currentPage !== 1
         ? api.getArticles(this.state.currentPage, topic)
         : api.getArticles(null, topic);
-    apiCall.then(articles => {
-      articles = !Array.isArray(articles) ? [articles] : articles;
-      if (articles.length < 10) this.setState({ lastPage: true });
-      this.setState({
-        articles,
-      });
-    });
+    apiCall
+      .then(articles => {
+        articles = !Array.isArray(articles) ? [articles] : articles;
+        if (articles.length < 10) this.setState({ lastPage: true });
+        this.setState({
+          articles,
+        });
+      })
+      .catch(err => this.props.navigate('/404', { replace: true }));
   };
 
   componentDidUpdate(prevProps, prevState) {
