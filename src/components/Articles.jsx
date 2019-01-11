@@ -8,13 +8,21 @@ class Articles extends Component {
     articles: [],
     currentPage: 1,
     lastPage: false,
+    err: null,
   };
   render() {
-    const { articles, lastPage } = this.state;
-    return (
+    const { articles, lastPage, currentPage, err } = this.state;
+    return err ? (
+      <section className='content-well'>
+        <h2>There are no articles here, why not create one?</h2>
+      </section>
+    ) : (
       <section className='content-well'>
         <Cards articles={articles} />
-        <button onClick={this.handlePage} disabled={lastPage === true}>
+        <button onClick={this.handlePrevPage} disabled={currentPage === 1}>
+          Previous Page
+        </button>
+        <button onClick={this.handleNextPage} disabled={lastPage === true}>
           Next Page
         </button>
       </section>
@@ -33,12 +41,14 @@ class Articles extends Component {
     apiCall
       .then(articles => {
         articles = !Array.isArray(articles) ? [articles] : articles;
-        if (articles.length < 10) this.setState({ lastPage: true });
+        articles.length < 10
+          ? this.setState({ lastPage: true })
+          : this.setState({ lastPage: false });
         this.setState({
           articles,
         });
       })
-      .catch(err => this.props.navigate('/404', { replace: true }));
+      .catch(err => this.setState({ err: err }));
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -49,9 +59,20 @@ class Articles extends Component {
     }
   }
 
-  handlePage = () => {
+  handleNextPage = () => {
+    this.setState(
+      prevState => {
+        prevState.currentPage++;
+      },
+      () => {
+        this.fetchArticles(this.props.topic);
+      },
+    );
+  };
+
+  handlePrevPage = () => {
     this.setState(prevState => {
-      prevState.currentPage++;
+      prevState.currentPage--;
       this.fetchArticles(this.props.topic);
     });
   };
