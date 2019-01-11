@@ -21,14 +21,22 @@ class Articles extends Component {
         <Cards articles={articles} />
         <section className='pageNav'>
           <button
-            className='button button--pagination'
+            className={
+              currentPage === 1
+                ? 'button button--pagination button--disabled'
+                : 'button button--pagination'
+            }
             onClick={this.handlePrevPage}
             disabled={currentPage === 1}
           >
             Previous Page
           </button>
           <button
-            className='button button--pagination'
+            className={
+              lastPage === true
+                ? 'button button--pagination button--disabled'
+                : 'button button--pagination'
+            }
             onClick={this.handleNextPage}
             disabled={lastPage === true}
           >

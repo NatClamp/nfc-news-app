@@ -22,3 +22,9 @@
   color: #fff;
   font-size: 0.8em;
 }
+
+.button--disabled {
+  background-color: #ddd !important;
+  color: rgb(139, 139, 139);
+  border-color: rgb(139, 139, 139);
+}
