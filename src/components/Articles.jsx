@@ -19,12 +19,22 @@ class Articles extends Component {
     ) : (
       <section className='content-well'>
         <Cards articles={articles} />
-        <button onClick={this.handlePrevPage} disabled={currentPage === 1}>
-          Previous Page
-        </button>
-        <button onClick={this.handleNextPage} disabled={lastPage === true}>
-          Next Page
-        </button>
+        <section className='pageNav'>
+          <button
+            className='button'
+            onClick={this.handlePrevPage}
+            disabled={currentPage === 1}
+          >
+            Previous Page
+          </button>
+          <button
+            className='button'
+            onClick={this.handleNextPage}
+            disabled={lastPage === true}
+          >
+            Next Page
+          </button>
+        </section>
       </section>
     );
   }

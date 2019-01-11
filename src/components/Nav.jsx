@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Nav.css';
-// import * as api from '../api';
 import { Link, navigate } from '@reach/router';
 import Topic from './Topics';
 
@@ -10,21 +9,26 @@ class Nav extends Component {
     return (
       <>
         <div className={navOpen ? 'nav nav--open' : 'nav'}>
+          <section className='navButtons'>
+            <button onClick={logout} className='button'>
+              logout
+            </button>
+            <div>
+              <Link className='navLink' to='/users'>
+                Users
+              </Link>
+            </div>
+          </section>
           <h2>Topics</h2>
           <Topic topics={topics} />
-          <button onClick={this.navPostTopic} className='button'>
-            Create Topic
-          </button>
-          <button onClick={this.navPostArticle} className='button'>
-            Create Article
-          </button>
-          <div>
-            <h2>Users</h2>
-            <Link to='/users'>Users</Link>
-          </div>
-          <button onClick={logout} className='button'>
-            logout
-          </button>
+          <section className='navButtons'>
+            <button onClick={this.navPostTopic} className='button'>
+              Create Topic
+            </button>
+            <button onClick={this.navPostArticle} className='button'>
+              Create Article
+            </button>
+          </section>
         </div>
       </>
     );

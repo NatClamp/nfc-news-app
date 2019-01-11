@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
+import './Topics.css';
 
 class Topics extends Component {
   render() {
     const { topics } = this.props;
     return (
-      <div>
+      <div className='topicList'>
         {topics.map(topic => {
           return (
             <p key={topic.slug}>
-              <Link to={`/${topic.slug}`}>{topic.slug}</Link>
+              <Link className='navLink' to={`/${topic.slug}`}>
+                {topic.slug}
+              </Link>
             </p>
           );
         })}
