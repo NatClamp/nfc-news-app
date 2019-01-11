@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../api';
+import './Voting.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Voting extends Component {
   state = {
@@ -9,24 +11,23 @@ class Voting extends Component {
     const { votes } = this.props;
     const { voteChange } = this.state;
     return (
-      <section className='articleElement'>
-        <h1>Let's vote</h1>
+      <div className='votingContainer'>
         <button
-          className='button'
+          className='button--voting'
           onClick={() => this.vote(1)}
           disabled={voteChange === 1}
         >
-          Up
+          <FontAwesomeIcon icon='arrow-up' />
         </button>
-        <p>Votes: {votes + voteChange}</p>
+        <p className='votes'>{votes + voteChange}</p>
         <button
-          className='button'
+          className='button--voting'
           onClick={() => this.vote(-1)}
           disabled={voteChange === -1}
         >
-          Down
+          <FontAwesomeIcon icon='arrow-down' />
         </button>
-      </section>
+      </div>
     );
   }
 

@@ -13,6 +13,13 @@ import Auth from './components/Auth';
 import PostTopic from './components/PostTopic';
 import PostArticle from './components/PostArticle';
 import Errors from './components/Errors';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faBars,
+  faArrowUp,
+  faArrowDown,
+} from '@fortawesome/free-solid-svg-icons';
+library.add(faBars, faArrowUp, faArrowDown);
 
 class App extends Component {
   state = {

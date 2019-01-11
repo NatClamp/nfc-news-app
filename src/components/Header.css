@@ -15,7 +15,7 @@
   width: 600px;
 }
 
-h1 {
+.header__content h1 {
   padding: 10px;
   margin: 0;
   font-weight: bold;

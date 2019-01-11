@@ -1,10 +1,17 @@
-.articleElement {
+.votingContainer {
+  height: 70px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.articleElement * {
-  padding: 7px 15px;
+.votingContainer * {
+  margin: 3px;
+  padding: 0;
+  font-size: 0.8em;
+}
+
+.button--voting {
+  border: none;
 }

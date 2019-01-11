@@ -17,25 +17,27 @@ class Article extends Component {
     return (
       <section className='content-well'>
         <section className='content-well__singleArticle'>
-          {/* article section */}
-          <h1>{articleData.title}</h1>
-          <h3>
-            {articleData.author} |{' '}
-            {moment(articleData.created_at).format(
-              'dddd, MMMM Do YYYY, h:mm a',
-            )}
-          </h3>
-          {/* voting */}
-          <section className='articleElement'>
-            <Voting
-              votes={articleData.votes}
-              id={articleData.article_id}
-              type={'article'}
-            />
+          <section className='content-well__singleArticle__header'>
+            <section className='content-well__singleArticle__header__left'>
+              <Voting
+                votes={articleData.votes}
+                id={articleData.article_id}
+                type={'article'}
+              />
+            </section>
+            <section className='content-well__singleArticle__header__right'>
+              <h1 className='title'>{articleData.title}</h1>
+              <p className='subTitle'>
+                {articleData.author} |{' '}
+                {moment(articleData.created_at).format(
+                  'dddd, MMMM Do YYYY, h:mm a',
+                )}
+              </p>
+            </section>
           </section>
           <section>
             <button
-              className='button'
+              className='button button--delete'
               onClick={() => this.handleDelete(this.props.article_id)}
             >
               Delete
@@ -44,7 +46,7 @@ class Article extends Component {
           {/* article body */}
           <p>{articleData.body}</p>
           {/* comments section */}
-          <section className=''>
+          <section>
             <Comments
               commentData={commentData}
               user_id={user.user_id}

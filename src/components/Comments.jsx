@@ -11,7 +11,7 @@ class Comments extends Component {
     commentData = !Array.isArray(commentData) ? [commentData] : commentData;
     return (
       <>
-        <h1>Comments</h1>
+        <h1 className='title title--comments'>Comments</h1>
         <PostComment
           user_id={user_id}
           articleData={articleData}
