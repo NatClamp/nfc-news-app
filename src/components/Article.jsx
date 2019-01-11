@@ -27,21 +27,22 @@ class Article extends Component {
             </section>
             <section className='content-well__singleArticle__header__right'>
               <h1 className='title'>{articleData.title}</h1>
-              <p className='subTitle'>
-                {articleData.author} |{' '}
-                {moment(articleData.created_at).format(
-                  'dddd, MMMM Do YYYY, h:mm a',
-                )}
-              </p>
+              <section className='subTitle'>
+                <section className='details'>
+                  {articleData.author} |{' '}
+                  {moment(articleData.created_at).format(
+                    'dddd, MMMM Do YYYY, h:mm a',
+                  )}{' '}
+                  |{' '}
+                </section>
+                <button
+                  className='button button--delete'
+                  onClick={() => this.handleDelete(this.props.article_id)}
+                >
+                  Delete
+                </button>
+              </section>
             </section>
-          </section>
-          <section>
-            <button
-              className='button button--delete'
-              onClick={() => this.handleDelete(this.props.article_id)}
-            >
-              Delete
-            </button>
           </section>
           {/* article body */}
           <p>{articleData.body}</p>

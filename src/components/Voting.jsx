@@ -13,19 +13,19 @@ class Voting extends Component {
     return (
       <div className='votingContainer'>
         <button
-          className='button--voting'
+          className='invisibleButton'
           onClick={() => this.vote(1)}
           disabled={voteChange === 1}
         >
-          <FontAwesomeIcon icon='arrow-up' />
+          <FontAwesomeIcon icon='arrow-up' className='button--voting' />
         </button>
         <p className='votes'>{votes + voteChange}</p>
         <button
-          className='button--voting'
+          className='invisibleButton'
           onClick={() => this.vote(-1)}
           disabled={voteChange === -1}
         >
-          <FontAwesomeIcon icon='arrow-down' />
+          <FontAwesomeIcon icon='arrow-down' className='button--voting' />
         </button>
       </div>
     );

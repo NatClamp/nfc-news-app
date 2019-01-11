@@ -19,16 +19,17 @@
 .content-well__singleArticle__header {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100px;
+  height: 80px;
 }
 
 .content-well__singleArticle__header__right {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding-left: 20px;
 }
 
 .content-well__singleArticle p {
@@ -56,15 +57,26 @@
   background-color: var(--interdimensionalBlue);
   color: #fff;
   border: none;
+  padding: 2px 5px;
+  font-size: 0.7em;
+  margin-left: 5px;
 }
 
 .title {
   font-size: 1.5em;
+  text-align: left;
   color: var(--interdimensionalBlue);
   margin: 5px 5px 5px 0;
 }
 
 .subTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.subTitle .details {
   text-transform: uppercase;
   font-size: 0.8em;
   margin: 0;
