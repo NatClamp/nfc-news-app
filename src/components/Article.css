@@ -61,7 +61,7 @@
 .title {
   font-size: 1.5em;
   color: var(--interdimensionalBlue);
-  margin: 5px;
+  margin: 5px 5px 5px 0;
 }
 
 .subTitle {
