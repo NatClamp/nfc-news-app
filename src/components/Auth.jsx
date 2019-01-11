@@ -31,9 +31,11 @@ class Auth extends Component {
                 className='authPage__form__input'
               />
             </section>
-            <button type='submit' className='button'>
-              Login
-            </button>
+            <section className='authPage__main__Element'>
+              <button type='submit' className='button button--login'>
+                Login
+              </button>
+            </section>
           </form>
           {this.state.failedAttempt && <p>Incorrect username</p>}
         </section>

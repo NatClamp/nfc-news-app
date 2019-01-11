@@ -32,10 +32,3 @@ h1 {
   border: none;
   color: var(--crayolaBlue);
 }
-
-.button--home {
-  background-color: #fff;
-  color: var(--crayolaBlue);
-  font-size: 1em;
-  border-color: var(--crayolaBlue);
-}

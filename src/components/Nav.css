@@ -29,10 +29,6 @@
 }
 
 .button--nav {
-  border-color: var(--crayolaBlue);
-  color: var(--crayolaBlue);
-  text-transform: uppercase;
-  font-size: 0.9em;
 }
 
 .button--nav--danger {
@@ -40,6 +36,7 @@
   color: #fff;
   text-transform: uppercase;
   font-size: 0.9em;
+  border: none;
 }
 
 .navLink {

@@ -11,7 +11,7 @@ const Header = ({ toggleNav, goHome }) => {
   return (
     <div className='header'>
       <section className='header__content'>
-        <button onClick={goHome} className='button button--home'>
+        <button onClick={goHome} className='button'>
           Home
         </button>
         <h1>NFC news</h1>
