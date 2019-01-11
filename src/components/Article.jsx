@@ -33,7 +33,7 @@ class Article extends Component {
                   {moment(articleData.created_at).format(
                     'dddd, MMMM Do YYYY, h:mm a',
                   )}{' '}
-                  |{' '}
+                  | {articleData.topic} |{' '}
                 </section>
                 <button
                   className='button button--delete'

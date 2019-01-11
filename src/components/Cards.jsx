@@ -21,6 +21,8 @@ class Cards extends Component {
                 {moment(article.created_at).format(
                   'dddd, MMMM Do YYYY, h:mm a',
                 )}
+                <br />
+                {article.topic}
               </Link>
             </article>
           );
