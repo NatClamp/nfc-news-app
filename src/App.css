@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+:root {
+  --lightBlue: #add7f6;
+  --lightSkyBlue: #87bfff;
+  --brilliantAzure: #3f8efc;
+  --crayolaBlue: #2667ff;
+  --interdimensionalBlue: #3b28cc;
+}
+
 .App {
   text-align: center;
   background-color: #f8f8f8;
   display: flex;
   flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .main {
@@ -13,9 +24,8 @@
 }
 
 .button {
-  padding: 5px 7px;
-  border-radius: 10px;
   background-color: #f8f8f8;
   border: 1px solid #ddd;
-  margin: 5px 5px 0 5px;
+  border-radius: 5px;
+  padding: 7px 10px;
 }

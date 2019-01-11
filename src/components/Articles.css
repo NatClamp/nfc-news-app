@@ -10,9 +10,15 @@
 }
 
 .pageNav {
-  width: 200px;
+  width: 250px;
   margin: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.button--pagination {
+  background-color: var(--crayolaBlue);
+  color: #fff;
+  font-size: 0.8em;
 }

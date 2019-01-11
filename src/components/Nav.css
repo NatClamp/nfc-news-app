@@ -17,15 +17,29 @@
   transform: translateX(0px);
 }
 
-.navButtons {
+.navButtonsContainer {
   display: flex;
   flex-direction: column;
   padding: 10px;
   margin: 5px;
 }
 
-.navButtons * {
+.navButtonsContainer * {
   margin: 5px;
+}
+
+.button--nav {
+  border-color: var(--crayolaBlue);
+  color: var(--crayolaBlue);
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.button--nav--danger {
+  background-color: var(--interdimensionalBlue);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.9em;
 }
 
 .navLink {

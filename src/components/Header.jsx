@@ -10,13 +10,15 @@ library.add(faBars);
 const Header = ({ toggleNav, goHome }) => {
   return (
     <div className='header'>
-      <button onClick={goHome} className='button'>
-        Home
-      </button>
-      <h1>NFC news</h1>
-      <button className='button button__hamburger' onClick={toggleNav}>
-        <FontAwesomeIcon icon='bars' />
-      </button>
+      <section className='header__content'>
+        <button onClick={goHome} className='button button--home'>
+          Home
+        </button>
+        <h1>NFC news</h1>
+        <button className='button button__hamburger' onClick={toggleNav}>
+          <FontAwesomeIcon icon='bars' />
+        </button>
+      </section>
     </div>
   );
 };

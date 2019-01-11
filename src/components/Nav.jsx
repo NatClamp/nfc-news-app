@@ -9,8 +9,8 @@ class Nav extends Component {
     return (
       <>
         <div className={navOpen ? 'nav nav--open' : 'nav'}>
-          <section className='navButtons'>
-            <button onClick={logout} className='button'>
+          <section className='navButtonsContainer'>
+            <button onClick={logout} className='button button--nav--danger'>
               logout
             </button>
             <div>
@@ -21,11 +21,14 @@ class Nav extends Component {
           </section>
           <h2>Topics</h2>
           <Topic topics={topics} />
-          <section className='navButtons'>
-            <button onClick={this.navPostTopic} className='button'>
+          <section className='navButtonsContainer'>
+            <button onClick={this.navPostTopic} className='button button--nav'>
               Create Topic
             </button>
-            <button onClick={this.navPostArticle} className='button'>
+            <button
+              onClick={this.navPostArticle}
+              className='button button--nav'
+            >
               Create Article
             </button>
           </section>
