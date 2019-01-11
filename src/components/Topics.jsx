@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
-import './Topics.css';
 
 class Topics extends Component {
   render() {
