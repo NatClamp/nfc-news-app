@@ -11,12 +11,11 @@
   background-color: #fff;
   border-radius: 25px;
   width: 400px;
-  height: 200px;
   border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: 30px 5px;
 }
 
 .authPage__header h1,
