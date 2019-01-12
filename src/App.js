@@ -50,7 +50,7 @@ class App extends Component {
               topics={this.state.topics}
             />
             <Users path='/users' />
-            <User path='/user/:username' user={user} />
+            <User path='/user/:username' />
             <Errors path='/404' goHome={this.goHome} />
           </Router>
           <Footer />

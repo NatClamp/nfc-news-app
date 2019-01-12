@@ -1,4 +1,4 @@
-.userCard {
+.profile__userCard {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -11,7 +11,7 @@
   border-radius: 20px 10px 10px 20px;
 }
 
-.user_avatar {
+.profile__user_avatar {
   position: relative;
   border-radius: 50%;
   width: 120px;
@@ -19,9 +19,10 @@
   left: -25px;
   top: -15px;
   border: 5px solid var(--brilliantAzure);
+  background-color: #fff;
 }
 
-.userCard__textContainer {
+.profile__userCard__textContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -30,18 +31,18 @@
   padding: 10px;
 }
 
-.userCard__textContainer * {
+.profile__userCard__textContainer * {
   margin: 0;
   padding: 0;
 }
 
-.userName {
+.profile__userName {
   font-size: 2em;
   letter-spacing: 1px;
   color: var(--crayolaBlue);
 }
 
-.userHandle {
+.profile__userHandle {
   color: var(--brilliantAzure);
   font-weight: 300;
   font-size: 1em;

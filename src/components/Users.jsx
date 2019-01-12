@@ -5,25 +5,29 @@ import Cards from './Cards';
 
 class Users extends Component {
   state = {
-    users: [],
+    loading: true,
+    allUsers: [],
   };
   render() {
-    const { users } = this.state;
-    return (
+    const { allUsers } = this.state;
+    return this.state.loading ? (
+      <p>Loading</p>
+    ) : (
       <section className='content-well'>
-        <Cards users={users} />
+        <Cards users={allUsers} />
       </section>
     );
   }
 
   componentDidMount() {
     this.fetchAllUsers();
+    this.setState({ loading: false });
   }
 
   fetchAllUsers = () => {
-    api.getAllUsers().then(users => {
+    api.getAllUsers().then(allUsers => {
       this.setState({
-        users,
+        allUsers,
       });
     });
   };
