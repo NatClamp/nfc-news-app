@@ -51,7 +51,7 @@ class App extends Component {
             />
             <Users path='/users' />
             <User path='/user/:username' user={user} />
-            <Errors path='/404' />
+            <Errors path='/404' goHome={this.goHome} />
           </Router>
           <Footer />
         </Auth>

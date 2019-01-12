@@ -1,0 +1,25 @@
+.content-well--404 {
+  padding-top: 30px;
+  min-height: calc(100vh - 180px);
+}
+
+.title--404 {
+  font-size: 7em;
+  font-weight: 300px;
+}
+.subTitle--404 {
+  font-size: 2em;
+}
+
+.description {
+  font-size: 1em;
+  letter-spacing: 0.7px;
+}
+
+.button--404 {
+  position: relative;
+  top: 30px;
+  font-size: 14px;
+  color: var(--interdimensionalBlue);
+  border: 2px solid var(--interdimensionalBlue);
+}
