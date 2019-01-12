@@ -1,0 +1,36 @@
+.title--postTopic {
+  margin: 20px;
+}
+
+.postTopicForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+}
+
+.postTopicForm__input {
+  width: 80%;
+  padding: 10px;
+  margin: 5px;
+  background: transparent;
+  outline: none;
+  border: solid 1px #ddd;
+  font-size: 14px;
+}
+
+.postTopicForm__textarea {
+  height: 200px;
+  width: 80%;
+  padding: 10px;
+  margin: 5px;
+  background: transparent;
+  outline: none;
+  border: solid 1px #ddd;
+  font-size: 14px;
+}
+
+.button--submit {
+  width: 100px;
+  margin: 0 auto;
+}

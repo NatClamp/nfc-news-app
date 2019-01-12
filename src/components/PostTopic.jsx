@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../api';
-import { Link } from '@reach/router';
+import './PostTopic.css';
+import PostArticle from './PostArticle';
 
 class PostTopic extends Component {
   state = {
@@ -10,41 +11,37 @@ class PostTopic extends Component {
     description: '',
   };
   render() {
-    const { topic, postComplete, slug, description } = this.state;
+    const { topics, user } = this.props;
+    const { postComplete, slug, description } = this.state;
     return !postComplete ? (
       <section className='content-well'>
-        <h1>post a topic</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor='slug'>Slug:</label>
+        <h1 className='title title--postTopic'>Create a Topic</h1>
+        <form onSubmit={this.handleSubmit} className='postTopicForm'>
           <input
             type='text'
             id='slug'
             value={slug}
             onChange={this.handleChange}
             required
+            placeholder='Topic name'
+            className='postTopicForm__input'
           />
-          <label htmlFor='description'>Description:</label>
           <textarea
             type='text'
             id='description'
             value={description}
             onChange={this.handleChange}
+            className='postTopicForm__textarea'
+            placeholder='Topic description'
             required
           />
-          <button type='submit'>Post Topic</button>
+          <button type='submit' className='button button--submit'>
+            post
+          </button>
         </form>
       </section>
     ) : (
-      <section className='content-well'>
-        <article className='newTopic'>
-          <p>{topic.slug}</p>
-          <p>{topic.description}</p>
-        </article>
-        <h1>
-          Why not post an article in your new{' '}
-          <Link to='/post-article'>topic</Link>?
-        </h1>
-      </section>
+      <div>{postComplete && <PostArticle user={user} topics={topics} />}</div>
     );
   }
 
