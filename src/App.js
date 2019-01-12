@@ -28,27 +28,29 @@ class App extends Component {
     topics: [],
   };
   render() {
+    const { navOpen, user, topics } = this.state;
     return (
       <div className='App'>
-        <Auth login={this.login} user={this.state.user}>
+        <Auth login={this.login} user={user}>
           <Header toggleNav={this.toggleNav} goHome={this.goHome} />
           <Nav
-            navOpen={this.state.navOpen}
+            navOpen={navOpen}
             logout={this.logout}
-            topics={this.state.topics}
+            topics={topics}
+            user={user}
           />
           <Router className='main'>
             <Articles path='/' />
             <Articles path='/:topic' />
-            <Article path='/articles/:article_id' user={this.state.user} />
+            <Article path='/articles/:article_id' user={user} />
             <PostTopic path='/post-topic' fetchTopics={this.fetchTopics} />
             <PostArticle
               path='/post-article'
-              user={this.state.user}
+              user={user}
               topics={this.state.topics}
             />
             <Users path='/users' />
-            <User path='/user/:username' />
+            <User path='/user/:username' user={user} />
             <Errors path='/404' />
           </Router>
           <Footer />
@@ -58,8 +60,9 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const { user } = this.state;
     this.fetchTopics();
-    if (localStorage.getItem('user') && !this.state.user.username) {
+    if (localStorage.getItem('user') && !user.username) {
       this.setState({ user: JSON.parse(localStorage.getItem('user')) });
     }
   }
@@ -88,8 +91,9 @@ class App extends Component {
   };
 
   toggleNav = () => {
+    const { navOpen } = this.state;
     this.setState({
-      navOpen: !this.state.navOpen,
+      navOpen: !navOpen,
     });
   };
 

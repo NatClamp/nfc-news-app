@@ -38,7 +38,7 @@ class Auth extends Component {
               </button>
             </section>
           </form>
-          {this.state.failedAttempt && <p>Incorrect username</p>}
+          {failedAttempt && <p>Incorrect username</p>}
         </section>
       </div>
     );
