@@ -9,6 +9,7 @@ class Auth extends Component {
   };
   render() {
     const { user, children } = this.props;
+    const { username, failedAttempt } = this.state;
     return user.user_id ? (
       children
     ) : (
@@ -26,7 +27,7 @@ class Auth extends Component {
               <input
                 type='text'
                 id='username'
-                value={this.state.username}
+                value={username}
                 onChange={this.handleUsername}
                 className='authPage__form__input'
               />
@@ -45,7 +46,9 @@ class Auth extends Component {
 
   handleUsername = event => {
     const { id, value } = event.target;
-    this.setState({ [id]: value });
+    this.setState({
+      [id]: value,
+    });
   };
 
   handleSubmit = event => {

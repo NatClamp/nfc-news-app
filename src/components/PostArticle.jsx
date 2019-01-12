@@ -4,23 +4,43 @@ import { navigate } from '@reach/router';
 
 class PostArticle extends Component {
   state = {
-    articlePosted: false,
     title: '',
     body: '',
+    topic: '',
   };
   render() {
     const { topics } = this.props;
-    // const { articlePosted } = this.state;
     return (
       <section className='content-well'>
         <h1>Post an Article</h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor='title'>Title:</label>
-          <input type='text' id='title' required />
+          <input
+            type='text'
+            value={this.state.title}
+            id='title'
+            onChange={this.handleChange}
+            required
+          />
+          <br />
           <label htmlFor='body'>Body:</label>
-          <input type='text' id='body' required />
+          <textarea
+            type='text'
+            value={this.state.body}
+            id='body'
+            onChange={this.handleChange}
+            required
+          />
+          <br />
           <label htmlFor='topic'>Topic:</label>
-          <select id='topic'>
+          <select
+            id='topic'
+            value={this.state.topic}
+            onChange={this.handleChange}
+          >
+            <option defaultselected='true' hidden>
+              Select a Topic
+            </option>
             {topics.map(topic => {
               return (
                 <option key={topic.slug} value={topic.slug}>
@@ -31,21 +51,21 @@ class PostArticle extends Component {
           </select>
           <button type='submit'>Post Article</button>
         </form>
-        {/* {articlePosted && (
-          <section>
-            <h1>Successfully Posted!</h1>
-          </section>
-        )} */}
       </section>
     );
   }
 
+  handleChange = event => {
+    const { id, value } = event.target;
+    this.setState({
+      [id]: value,
+    });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     const user_id = this.props.user.user_id;
-    const topic = event.target.topic.value;
-    const title = event.target.title.value;
-    const body = event.target.body.value;
+    const { title, body, topic } = this.state;
     api.postArticle(topic, { title, body, user_id }).then(article => {
       navigate(`/articles/${article.article_id}`);
     });

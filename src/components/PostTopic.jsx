@@ -6,17 +6,31 @@ class PostTopic extends Component {
   state = {
     topic: {},
     postComplete: false,
+    slug: '',
+    description: '',
   };
   render() {
-    const { topic, postComplete } = this.state;
+    const { topic, postComplete, slug, description } = this.state;
     return !postComplete ? (
       <section className='content-well'>
         <h1>post a topic</h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor='slug'>Slug:</label>
-          <input type='text' id='slug' required />
+          <input
+            type='text'
+            id='slug'
+            value={slug}
+            onChange={this.handleChange}
+            required
+          />
           <label htmlFor='description'>Description:</label>
-          <input type='text' id='description' required />
+          <input
+            type='text'
+            id='description'
+            value={description}
+            onChange={this.handleChange}
+            required
+          />
           <button type='submit'>Post Topic</button>
         </form>
       </section>
@@ -34,10 +48,18 @@ class PostTopic extends Component {
     );
   }
 
+  handleChange = event => {
+    const { id } = event.target;
+    const value =
+      id === 'slug' ? event.target.value.toLowerCase() : event.target.value;
+    this.setState({
+      [id]: value,
+    });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
-    const slug = event.target.slug.value;
-    const description = event.target.description.value;
+    const { slug, description } = this.state;
     api.postTopic(slug, description).then(topic => {
       this.setState(() => ({ topic, postComplete: true }));
     });
