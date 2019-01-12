@@ -15,7 +15,7 @@ class PostTopic extends Component {
     const { postComplete, slug, description } = this.state;
     return !postComplete ? (
       <section className='content-well'>
-        <h1 className='title title--postTopic'>Create a Topic</h1>
+        <h1 className='title title--post'>Create a Topic</h1>
         <form onSubmit={this.handleSubmit} className='postTopicForm'>
           <input
             type='text'
