@@ -5,10 +5,20 @@ import Topic from './Topics';
 
 class Nav extends Component {
   render() {
-    const { navOpen, logout, topics } = this.props;
+    const { navOpen, logout, topics, user } = this.props;
     return (
       <>
         <div className={navOpen ? 'nav nav--open' : 'nav'}>
+          <section className='userDetails'>
+            <img
+              src={user.avatar_url}
+              alt='user_avatar'
+              className='userDetails__avatar'
+            />
+            <p className='userDetails__username'>
+              <Link to={`/user/${user.username}`}>{user.username}</Link>
+            </p>
+          </section>
           <section className='navButtonsContainer'>
             <button onClick={logout} className='button button--nav--danger'>
               logout

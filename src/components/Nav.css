@@ -44,3 +44,18 @@
   text-transform: uppercase;
   font-size: 0.9em;
 }
+
+.userDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.userDetails__username {
+  margin: 10px;
+}
+
+.userDetails__avatar {
+  height: 30px;
+}
