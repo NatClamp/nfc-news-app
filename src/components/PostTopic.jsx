@@ -24,7 +24,7 @@ class PostTopic extends Component {
             required
           />
           <label htmlFor='description'>Description:</label>
-          <input
+          <textarea
             type='text'
             id='description'
             value={description}

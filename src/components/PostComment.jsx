@@ -12,7 +12,7 @@ class PostComment extends Component {
         <h1>Post a comment</h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor='body'>Comment:</label>
-          <input
+          <textarea
             type='text'
             id='body'
             value={body}
