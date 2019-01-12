@@ -8,12 +8,20 @@ class Voting extends Component {
     voteChange: 0,
   };
   render() {
-    const { votes } = this.props;
+    const { votes, type } = this.props;
     const { voteChange } = this.state;
     return (
-      <div className='votingContainer'>
+      <div
+        className={
+          type === 'article' ? 'votingContainer' : 'votingContainer--comment'
+        }
+      >
         <button
-          className='invisibleButton'
+          className={
+            type === 'article'
+              ? 'invisibleButton'
+              : 'invisibleButton invisibleButton--comment'
+          }
           onClick={() => this.vote(1)}
           disabled={voteChange === 1}
         >
@@ -21,7 +29,11 @@ class Voting extends Component {
         </button>
         <p className='votes'>{votes + voteChange}</p>
         <button
-          className='invisibleButton'
+          className={
+            type === 'article'
+              ? 'invisibleButton'
+              : 'invisibleButton invisibleButton--comment'
+          }
           onClick={() => this.vote(-1)}
           disabled={voteChange === -1}
         >

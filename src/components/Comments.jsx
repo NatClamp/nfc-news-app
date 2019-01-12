@@ -27,28 +27,23 @@ class Comments extends Component {
           commentData.map(comment => (
             <article key={comment.comment_id} className='comment'>
               <section className='comment__header'>
-                {comment.author} |{' '}
-                {moment(comment.created_at).format(
-                  'dddd, MMMM Do YYYY, h:mm a',
+                {comment.author} | {moment(comment.created_at).fromNow()} |
+                {username === comment.author && (
+                  <button
+                    className='button button--delete'
+                    onClick={() => this.handleDelete(comment.comment_id)}
+                  >
+                    Delete
+                  </button>
                 )}
+                <Voting
+                  votes={comment.votes}
+                  id={articleData.article_id}
+                  commentId={comment.comment_id}
+                  type={'comment'}
+                />
               </section>
-              <br />
               <section className='comment__body'>{comment.body}</section>
-              <Voting
-                votes={comment.votes}
-                id={articleData.article_id}
-                commentId={comment.comment_id}
-                type={'comment'}
-              />
-              <br />
-              {username === comment.author && (
-                <button
-                  className='button'
-                  onClick={() => this.handleDelete(comment.comment_id)}
-                >
-                  Delete
-                </button>
-              )}
             </article>
           ))}
       </>

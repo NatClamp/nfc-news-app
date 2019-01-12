@@ -4,6 +4,13 @@
   align-items: center;
 }
 
+.votingContainer--comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+
 .votingContainer * {
   padding: 0;
   font-size: 1em;
@@ -17,4 +24,9 @@
 
 .invisibleButton {
   border: none;
+}
+
+.invisibleButton--comment {
+  border: none;
+  height: 30px;
 }
