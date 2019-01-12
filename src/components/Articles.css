@@ -27,4 +27,5 @@
   background-color: #ddd !important;
   color: rgb(139, 139, 139);
   border-color: rgb(139, 139, 139);
+  cursor: not-allowed;
 }

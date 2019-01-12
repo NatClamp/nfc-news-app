@@ -10,7 +10,7 @@ const Header = ({ toggleNav, goHome }) => {
           Home
         </button>
         <h1>NFC news</h1>
-        <button className='button button__hamburger' onClick={toggleNav}>
+        <button className='button__hamburger' onClick={toggleNav}>
           <FontAwesomeIcon icon='bars' />
         </button>
       </section>

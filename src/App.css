@@ -30,4 +30,19 @@
   padding: 7px 10px;
   text-transform: uppercase;
   font-size: 0.9em;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: var(--crayolaBlue);
+}
+
+a:link,
+a:visited {
+  color: var(--crayolaBlue);
+}
+
+a:hover {
+  color: var(--interdimensionalBlue);
 }

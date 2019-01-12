@@ -9,13 +9,43 @@ img {
   height: 50px;
 }
 
-.userCardList {
+.cardList {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.userCard {
+.card {
+  border: 2px solid var(--lightSkyBlue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  margin: 10px;
+  width: 700px;
+}
+
+.card * {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.card__title {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--interdimensionalBlue);
+}
+
+.card__authortopicdate {
+  font-size: 0.8em;
+  color: var(--crayolaBlue);
+}
+
+/* USERS PAGE */
+
+.card--userCard {
   width: 300px;
   display: flex;
   flex-direction: row;

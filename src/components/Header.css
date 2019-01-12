@@ -32,3 +32,7 @@
   border: none;
   color: var(--crayolaBlue);
 }
+
+.button__hamburger:focus {
+  outline: none;
+}

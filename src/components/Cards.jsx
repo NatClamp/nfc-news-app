@@ -1,53 +1,49 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from '@reach/router';
-import './Articles.css';
 import './Cards.css';
 import moment from 'moment';
 
-class Cards extends Component {
-  render() {
-    const { articles, users } = this.props;
-
-    return articles ? (
-      <>
-        {articles.map(article => {
+const Cards = props => {
+  const { articles, users } = props;
+  return articles ? (
+    <>
+      {articles.map(article => {
+        return (
+          <article key={article.article_id} className='card'>
+            <Link to={`/articles/${article.article_id}`}>
+              <p className='card__title'>{article.title}</p>
+            </Link>
+            <p className='card__authortopicdate'>
+              Posted in{' '}
+              <span className='card__topic'>
+                <Link to={`/${article.topic}`}>{article.topic}</Link>
+              </span>{' '}
+              by <Link to={`/user/${article.author}`}>{article.author}</Link> |{' '}
+              {moment(article.created_at).fromNow()}
+            </p>
+          </article>
+        );
+      })}
+    </>
+  ) : (
+    <>
+      <main className='cardList'>
+        {users.map(user => {
           return (
-            <article key={article.article_id}>
-              <Link to={`/articles/${article.article_id}`}>
-                {article.title}
-                <br />
-                {article.author}
-                <br />
-                {moment(article.created_at).format(
-                  'dddd, MMMM Do YYYY, h:mm a',
-                )}
-                <br />
-                {article.topic}
-              </Link>
+            <article key={user.user_id} className='card--userCard'>
+              <img
+                src={user.avatar_url}
+                alt='user_profile_image'
+                className='userCard__pic'
+              />
+              <br />
+              <p className='userCard__username'>{user.username}</p>
             </article>
           );
         })}
-      </>
-    ) : (
-      <>
-        <main className='userCardList'>
-          {users.map(user => {
-            return (
-              <article key={user.user_id} className='userCard'>
-                <img
-                  src={user.avatar_url}
-                  alt='user_profile_image'
-                  className='userCard__pic'
-                />
-                <br />
-                <p className='userCard__username'>{user.username}</p>
-              </article>
-            );
-          })}
-        </main>
-      </>
-    );
-  }
-}
+      </main>
+    </>
+  );
+};
 
 export default Cards;
