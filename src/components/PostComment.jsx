@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../api';
+import './PostComment.css';
 
 class PostComment extends Component {
   state = {
@@ -8,18 +9,21 @@ class PostComment extends Component {
   render() {
     const { body } = this.state;
     return (
-      <section>
-        <h1>Post a comment</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor='body'>Comment:</label>
+      <section className='postCommentContainer'>
+        <form onSubmit={this.handleSubmit} className='postCommentForm'>
+          {/* <label htmlFor='body'>Comment:</label> */}
           <textarea
             type='text'
             id='body'
             value={body}
             onChange={this.handleChange}
+            placeholder='COMMENT'
+            className='postCommentForm__textarea'
             required
           />
-          <button type='submit'>Comment</button>
+          <button type='submit' className='button button--submit'>
+            post
+          </button>
         </form>
       </section>
     );

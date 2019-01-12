@@ -1,0 +1,20 @@
+.postCommentForm {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.postCommentForm__textarea {
+  height: 200px;
+  padding: 10px;
+  margin: 20px;
+  background: transparent;
+  outline: none;
+  border: solid 1px #ddd;
+  font-size: 14px;
+}
+
+.button--submit {
+  width: 100px;
+  margin: 0 auto;
+}
