@@ -3,17 +3,17 @@ import { Link } from '@reach/router';
 
 const Topics = ({ topics }) => {
   return (
-    <div className='topicList'>
+    <ul className='topicList'>
       {topics.map(topic => {
         return (
-          <p key={topic.slug} className='topicSlug'>
+          <li key={topic.slug} className='topicSlug'>
             <Link className='navLink' to={`/${topic.slug}`}>
               {topic.slug}
             </Link>
-          </p>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 
