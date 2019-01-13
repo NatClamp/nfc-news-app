@@ -11,7 +11,7 @@
   margin: 5px;
   background: transparent;
   outline: none;
-  border: solid 1px var(--LSG-1);
+  border: solid 1px var(--LSG-3);
   font-size: 14px;
 }
 
@@ -22,7 +22,7 @@
   margin: 5px;
   background: transparent;
   outline: none;
-  border: solid 1px var(--LSG-1);
+  border: solid 1px var(--LSG-3);
   font-size: 14px;
 }
 
@@ -30,7 +30,7 @@
   width: 80%;
   padding: 11px 15px;
   margin: 10px;
-  border: solid 1px var(--LSG-1);
+  border: solid 1px var(--LSG-3);
   border-radius: 0;
   font-size: 14px;
   transition: border-color 0.2s ease, outline 0.2s ease;
@@ -40,7 +40,7 @@
   border-color: var(--LSG-8);
 }
 .postArticleForm__select:focus {
-  outline: 3px solid var(--LSG-1);
+  outline: 3px solid var(--LSG-4);
   outline-offset: -3px;
 }
 
