@@ -80,7 +80,6 @@ export const deleteComment = async (article_id, comment_id) => {
 };
 
 export const deleteArticle = async article_id => {
-  console.log('deleting');
   const { data } = await axios.delete(`${BASE_URL}/articles/${article_id}/`);
   return data;
 };
