@@ -25,9 +25,16 @@ class Voting extends Component {
           onClick={() => this.vote(1)}
           disabled={voteChange === 1}
         >
-          <FontAwesomeIcon icon='arrow-up' className='button--voting' />
+          <FontAwesomeIcon
+            icon='arrow-up'
+            className={
+              voteChange === 1
+                ? 'button--voting button--voting--disabled'
+                : 'button--voting'
+            }
+          />
         </button>
-        <p className='votes'>{votes + voteChange}</p>
+        <p className='votes'>{parseInt(votes) + voteChange}</p>
         <button
           className={
             type === 'article'
@@ -37,7 +44,14 @@ class Voting extends Component {
           onClick={() => this.vote(-1)}
           disabled={voteChange === -1}
         >
-          <FontAwesomeIcon icon='arrow-down' className='button--voting' />
+          <FontAwesomeIcon
+            icon='arrow-down'
+            className={
+              voteChange === -1
+                ? 'button--voting button--voting--disabled'
+                : 'button--voting'
+            }
+          />
         </button>
       </div>
     );

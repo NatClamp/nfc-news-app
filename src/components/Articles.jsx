@@ -8,11 +8,16 @@ class Articles extends Component {
     articles: [],
     currentPage: 1,
     lastPage: false,
+    isLoading: true,
     err: null,
   };
   render() {
-    const { articles, lastPage, currentPage, err } = this.state;
-    return err ? (
+    const { articles, lastPage, currentPage, err, isLoading } = this.state;
+    return isLoading ? (
+      <section className='content-well'>
+        <p>Loading...</p>
+      </section>
+    ) : err ? (
       <section className='content-well'>
         <h1 className='title title--404'>Oh no!</h1>
         <h2 className='description description--noarticles'>
@@ -71,6 +76,7 @@ class Articles extends Component {
           : this.setState({ lastPage: false });
         this.setState({
           articles,
+          isLoading: false,
         });
       })
       .catch(err => this.setState({ err: err }));

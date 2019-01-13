@@ -37,7 +37,7 @@ class Comments extends Component {
                   </button>
                 )}
                 <Voting
-                  votes={comment.votes}
+                  votes={parseInt(comment.votes)}
                   id={articleData.article_id}
                   commentId={comment.comment_id}
                   type={'comment'}

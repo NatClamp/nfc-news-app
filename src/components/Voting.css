@@ -30,3 +30,7 @@
   border: none;
   height: 30px;
 }
+
+.button--voting--disabled {
+  color: #ddd;
+}

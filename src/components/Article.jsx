@@ -10,17 +10,22 @@ class Article extends Component {
   state = {
     articleData: {},
     commentData: [],
+    isLoading: true,
   };
   render() {
-    const { articleData, commentData } = this.state;
+    const { articleData, commentData, isLoading } = this.state;
     const { user } = this.props;
-    return (
+    return isLoading ? (
+      <section className='content-well'>
+        <p>Loading...</p>
+      </section>
+    ) : (
       <section className='content-well'>
         <section className='content-well__singleArticle'>
           <section className='content-well__singleArticle__header'>
             <section className='content-well__singleArticle__header__left'>
               <Voting
-                votes={articleData.votes}
+                votes={parseInt(articleData.votes)}
                 id={articleData.article_id}
                 type={'article'}
               />
@@ -72,6 +77,7 @@ class Article extends Component {
       .then(articleData => {
         this.setState({
           articleData,
+          isLoading: false,
         });
       })
       .catch(err => navigate('/404', { replace: true }));
