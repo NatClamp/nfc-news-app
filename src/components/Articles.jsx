@@ -14,7 +14,14 @@ class Articles extends Component {
     const { articles, lastPage, currentPage, err } = this.state;
     return err ? (
       <section className='content-well'>
-        <h2>There are no articles here, why not create one?</h2>
+        <h1 className='title title--404'>Oh no!</h1>
+        <h2 className='description description--noarticles'>
+          There aren't any articles in this topic yet. <br />
+          Fancy writing the first?
+        </h2>
+        <button className='button' onClick={this.handleNavToPost}>
+          Post article
+        </button>
       </section>
     ) : (
       <section className='content-well'>
@@ -92,6 +99,12 @@ class Articles extends Component {
     this.setState(prevState => {
       prevState.currentPage--;
       this.fetchArticles(this.props.topic);
+    });
+  };
+
+  handleNavToPost = () => {
+    this.setState({ err: null }, () => {
+      this.props.navigate('/post-article');
     });
   };
 }

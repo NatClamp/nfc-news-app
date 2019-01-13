@@ -29,3 +29,7 @@
   border-color: rgb(139, 139, 139);
   cursor: not-allowed;
 }
+
+.description--noarticles {
+  margin: 30px 10px;
+}
