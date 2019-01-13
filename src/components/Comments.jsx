@@ -17,35 +17,37 @@ class Comments extends Component {
     commentData = !Array.isArray(commentData) ? [commentData] : commentData;
     return (
       <>
-        <h1 className='title title--comments'>Comments</h1>
-        <PostComment
-          user_id={user_id}
-          articleData={articleData}
-          fetchComments={fetchComments}
-        />
-        {commentData.length > 0 &&
-          commentData.map(comment => (
-            <article key={comment.comment_id} className='comment'>
-              <section className='comment__header'>
-                {comment.author} | {moment(comment.created_at).fromNow()} |
-                {username === comment.author && (
-                  <button
-                    className='button button--delete'
-                    onClick={() => this.handleDelete(comment.comment_id)}
-                  >
-                    Delete
-                  </button>
-                )}
-                <Voting
-                  votes={parseInt(comment.votes)}
-                  id={articleData.article_id}
-                  commentId={comment.comment_id}
-                  type={'comment'}
-                />
-              </section>
-              <section className='comment__body'>{comment.body}</section>
-            </article>
-          ))}
+        <section className='commentsContainer'>
+          <h1 className='title title--comments'>Comments</h1>
+          <PostComment
+            user_id={user_id}
+            articleData={articleData}
+            fetchComments={fetchComments}
+          />
+          {commentData.length > 0 &&
+            commentData.map(comment => (
+              <article key={comment.comment_id} className='comment'>
+                <section className='comment__header'>
+                  {comment.author} | {moment(comment.created_at).fromNow()} |
+                  {username === comment.author && (
+                    <button
+                      className='button button--delete'
+                      onClick={() => this.handleDelete(comment.comment_id)}
+                    >
+                      Delete
+                    </button>
+                  )}
+                  <Voting
+                    votes={parseInt(comment.votes)}
+                    id={articleData.article_id}
+                    commentId={comment.comment_id}
+                    type={'comment'}
+                  />
+                </section>
+                <section className='comment__body'>{comment.body}</section>
+              </article>
+            ))}
+        </section>
       </>
     );
   }

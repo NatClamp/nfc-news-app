@@ -50,7 +50,7 @@ class Article extends Component {
             </section>
           </section>
           <p className='bodyText'>{articleData.body}</p>
-          <section className='comments'>
+          <section>
             <Comments
               commentData={commentData}
               user_id={user.user_id}

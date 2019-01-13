@@ -16,8 +16,8 @@ class Auth extends Component {
       <div className='authPageContainer'>
         <section className='authPage__main'>
           <section className='authPage__header'>
-            <h1>NFC-news</h1>
-            <h3>Login</h3>
+            <h1 className='title title--auth'>NFC-news</h1>
+            <h3 className='subTitle--auth'>Login</h3>
           </section>
           <form onSubmit={this.handleSubmit}>
             <section className='authPage__form'>
