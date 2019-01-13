@@ -14,12 +14,13 @@
 .description {
   font-size: 1em;
   letter-spacing: 0.7px;
+  text-align: center;
 }
 
 .button--404 {
   position: relative;
   top: 30px;
   font-size: 14px;
-  color: var(--interdimensionalBlue);
-  border: 2px solid var(--interdimensionalBlue);
+  color: var(--LSG-8);
+  border: 2px solid var(--LSG-8);
 }

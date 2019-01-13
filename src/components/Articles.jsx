@@ -18,7 +18,7 @@ class Articles extends Component {
         <p>Loading...</p>
       </section>
     ) : err ? (
-      <section className='content-well'>
+      <section className='content-well content-well--noarticles'>
         <h1 className='title title--404'>Oh no!</h1>
         <h2 className='description description--noarticles'>
           There aren't any articles in this topic yet. <br />

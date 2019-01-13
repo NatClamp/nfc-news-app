@@ -1,7 +1,7 @@
 .comment {
   padding: 10px;
   margin: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--LSG-2);
 }
 
 .comment__header {
@@ -9,12 +9,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--ONYX-6);
+  text-transform: uppercase;
+  font-size: 0.8em;
 }
 
 .comment__body {
   text-align: left;
   line-height: 1.5em;
   padding: 20px;
+  font-size: 0.9em;
+  color: var(--ONYX-5);
 }
 
 .title--comments {

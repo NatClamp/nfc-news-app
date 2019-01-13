@@ -16,8 +16,9 @@ img {
 }
 
 .card {
-  border: 2px solid var(--lightSkyBlue);
+  border: 2px solid var(--LSG-2);
   border-radius: 10px;
+  background-color: var(--LSG-1);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,12 +36,17 @@ img {
 .card__title {
   font-size: 1.3em;
   font-weight: bold;
-  color: var(--interdimensionalBlue);
+  color: var(--LSG-7);
+  padding: 5px;
+}
+
+.card__title:hover {
+  color: var(--LSG-8);
 }
 
 .card__authortopicdate {
   font-size: 0.8em;
-  color: var(--crayolaBlue);
+  color: var(--LSG-5);
 }
 
 /* USERS PAGE */

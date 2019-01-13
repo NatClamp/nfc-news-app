@@ -12,7 +12,7 @@ class PostArticle extends Component {
   render() {
     const { topics, path } = this.props;
     return (
-      <section className='content-well'>
+      <section className='content-well content-well--shortcontent'>
         {path === '/post-article' ? (
           <h1 className='title title--post'>Post an Article</h1>
         ) : (

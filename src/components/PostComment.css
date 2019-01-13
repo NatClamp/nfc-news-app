@@ -10,7 +10,7 @@
   margin: 20px;
   background: transparent;
   outline: none;
-  border: solid 1px #ddd;
+  border: solid 1px var(--LSG-1);
   font-size: 14px;
 }
 

@@ -35,10 +35,8 @@ class Article extends Component {
               <section className='subTitle'>
                 <section className='details'>
                   {articleData.author} |{' '}
-                  {moment(articleData.created_at).format(
-                    'dddd, MMMM Do YYYY, h:mm a',
-                  )}{' '}
-                  | {articleData.topic} |{' '}
+                  {moment(articleData.created_at).fromNow()} |{' '}
+                  {articleData.topic} |{' '}
                 </section>
                 {user.username === articleData.author && (
                   <button

@@ -6,8 +6,8 @@
   margin: 50px;
   height: 100px;
   width: 400px;
-  background-color: var(--lightBlue);
-  border: 2px solid var(--brilliantAzure);
+  background-color: var(--LSG-1);
+  border: 2px solid var(--LSG-3);
   border-radius: 20px 10px 10px 20px;
 }
 
@@ -18,8 +18,8 @@
   height: 120px;
   left: -25px;
   top: -15px;
-  border: 5px solid var(--brilliantAzure);
-  background-color: #fff;
+  border: 5px solid var(--LSG-3);
+  background-color: var(--ONYX-1);
 }
 
 .profile__userCard__textContainer {
@@ -39,11 +39,11 @@
 .profile__userName {
   font-size: 2em;
   letter-spacing: 1px;
-  color: var(--crayolaBlue);
+  color: var(--LSG-5);
 }
 
 .profile__userHandle {
-  color: var(--brilliantAzure);
+  color: var(--LSG-3);
   font-weight: 300;
   font-size: 1em;
   letter-spacing: 0.7px;

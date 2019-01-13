@@ -9,7 +9,7 @@
   right: 0;
   top: 0;
   transform: translateX(200px);
-  border-left: 1px solid #ddd;
+  border-left: 1px solid var(--ONYX-1);
 }
 
 .nav--open {
@@ -43,16 +43,20 @@
 .title--nav {
   text-transform: uppercase;
   font-size: 0.8em;
-  color: #ddd;
+  color: var(--LSG-2);
   margin: 5px;
 }
 
 .button--nav--danger {
-  background-color: var(--interdimensionalBlue);
-  color: #fff;
+  background-color: var(--LSG-7);
+  color: var(--ONYX-1);
   text-transform: uppercase;
   font-size: 0.9em;
   border: none;
+}
+
+.button--nav--danger:hover {
+  background-color: var(--LSG-8);
 }
 
 .navLink {

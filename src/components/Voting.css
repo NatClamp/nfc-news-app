@@ -20,6 +20,7 @@
 .button--voting {
   border: none;
   padding: 5px;
+  color: var(--LSG-6);
 }
 
 .invisibleButton {
@@ -32,5 +33,5 @@
 }
 
 .button--voting--disabled {
-  color: #ddd;
+  color: var(--LSG-2);
 }

@@ -1,15 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 
 :root {
-  --lightBlue: #add7f6;
-  --lightSkyBlue: #87bfff;
-  --brilliantAzure: #3f8efc;
-  --crayolaBlue: #2667ff;
-  --interdimensionalBlue: #3b28cc;
+  --LSG-1: #eaf6f6;
+  --LSG-2: #9ad3d3;
+  --LSG-3: #71c2c2;
+  --LSG-4: #49b1b1;
+  --LSG-5: #21a0a0;
+  --LSG-6: #1c8383;
+  --LSG-7: #156666;
+  --LSG-8: #0f4949;
+  --LSG-9: #0f4949;
+  --ONYX-1: #eceded;
+  --ONYX-2: #dadbdb;
+  --ONYX-3: #b5b7b8;
+  --ONYX-4: #595d5f;
+  --ONYX-5: #35393c;
+  --ONYX-6: #2c2f32;
+  --ONYX-7: #222527;
 }
 
 .App {
-  background-color: #f8f8f8;
+  background-color: var(--ONYX-1);
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
@@ -22,26 +33,42 @@
   justify-content: center;
 }
 
+.content-well {
+  width: 800px;
+  height: 100%;
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content-well--shortcontent {
+  height: calc(100vh - 180px);
+}
+
 .button {
-  color: var(--crayolaBlue);
-  border: 1px solid var(--crayolaBlue);
+  color: var(--LSG-5);
+  border: 1px solid var(--LSG-5);
   border-radius: 5px;
   padding: 7px 10px;
   text-transform: uppercase;
   font-size: 0.9em;
   transition-duration: 0.4s;
+  background-color: transparent;
 }
 
 .button:hover {
-  color: #fff;
-  background-color: var(--crayolaBlue);
+  color: var(--ONYX-1);
+  background-color: var(--LSG-5);
 }
 
 a:link,
 a:visited {
-  color: var(--crayolaBlue);
+  color: var(--LSG-5);
 }
 
 a:hover {
-  color: var(--interdimensionalBlue);
+  color: var(--LSG-8);
 }
