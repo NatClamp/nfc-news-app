@@ -39,7 +39,7 @@ class App extends Component {
             topics={topics}
             user={user}
           />
-          <Router className='main'>
+          <Router className='main' primary={false}>
             <Articles path='/' />
             <Articles path='/:topic' />
             <Article path='/articles/:article_id' user={user} />
