@@ -32,7 +32,3 @@
 .description--noarticles {
   margin: 30px 10px;
 }
-
-.content-well--noarticles {
-  height: calc(100vh - 180px);
-}

@@ -20,32 +20,32 @@
 }
 
 .App {
-  background-color: var(--ONYX-1);
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
+  height: 100%;
 }
 
 .main {
-  min-height: calc(100vh - 150px);
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .content-well {
-  width: 800px;
+  max-width: 600px;
+  width: 100%;
   height: 100%;
-  padding: 20px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-
-.content-well--shortcontent {
-  height: calc(100vh - 180px);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
 .button {
