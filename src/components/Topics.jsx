@@ -6,7 +6,7 @@ const Topics = ({ topics }) => {
     <div className='topicList'>
       {topics.map(topic => {
         return (
-          <p key={topic.slug}>
+          <p key={topic.slug} className='topicSlug'>
             <Link className='navLink' to={`/${topic.slug}`}>
               {topic.slug}
             </Link>

@@ -8,7 +8,7 @@ class Nav extends Component {
     const { navOpen, logout, topics, user } = this.props;
     return (
       <>
-        <div className={navOpen ? 'nav nav--open' : 'nav'}>
+        <main className={navOpen ? 'nav nav--open' : 'nav'}>
           <section className='userDetails'>
             <img
               src={user.avatar_url}
@@ -16,33 +16,34 @@ class Nav extends Component {
               className='userDetails__avatar'
             />
             <p className='userDetails__username'>
-              <Link to={`/user/${user.username}`}>{user.username}</Link>
+              <Link to={`/user/${user.username}`} className='navLink'>
+                {user.username}
+              </Link>
             </p>
           </section>
+          <section className='topicsList'>
+            <h2 className='title--nav'>Topics</h2>
+            <Topic topics={topics} />
+          </section>
           <section className='navButtonsContainer'>
+            <h2 className='title--nav'>Create</h2>
+            <button onClick={this.navPostTopic} className='button'>
+              Create Topic
+            </button>
+            <button onClick={this.navPostArticle} className='button'>
+              Create Article
+            </button>
+            <h2 className='title--nav'>Other</h2>
+            <button className='button' onClick={this.navToUsers}>
+              Users
+            </button>
             <button onClick={logout} className='button button--nav--danger'>
               logout
             </button>
-            <div>
-              <Link className='navLink' to='/users'>
-                Users
-              </Link>
-            </div>
           </section>
-          <h2>Topics</h2>
-          <Topic topics={topics} />
-          <section className='navButtonsContainer'>
-            <button onClick={this.navPostTopic} className='button button--nav'>
-              Create Topic
-            </button>
-            <button
-              onClick={this.navPostArticle}
-              className='button button--nav'
-            >
-              Create Article
-            </button>
-          </section>
-        </div>
+
+          <section className='navButtonsContainer' />
+        </main>
       </>
     );
   }
@@ -53,6 +54,10 @@ class Nav extends Component {
 
   navPostArticle = () => {
     navigate('/post-article');
+  };
+
+  navToUsers = () => {
+    navigate('/users');
   };
 }
 
