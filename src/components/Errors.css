@@ -1,14 +1,13 @@
-.content-well--404 {
-  padding-top: 30px;
-  min-height: calc(100vh - 180px);
-}
-
 .title--404 {
   font-size: 7em;
   font-weight: 300px;
 }
+
 .subTitle--404 {
   font-size: 2em;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--LSG-6);
 }
 
 .description {
@@ -17,10 +16,10 @@
   text-align: center;
 }
 
+.description {
+  color: var(--LSG-7);
+}
+
 .button--404 {
-  position: relative;
-  top: 30px;
-  font-size: 14px;
-  color: var(--LSG-8);
-  border: 2px solid var(--LSG-8);
+  margin-bottom: 40px;
 }
