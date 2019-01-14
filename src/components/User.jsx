@@ -9,7 +9,7 @@ class User extends Component {
   render() {
     const { username, avatar_url, name } = this.state.user;
     return (
-      <main className='content-well content-well--shortcontent'>
+      <main className='content-well'>
         <article className='profile__userCard'>
           <section className='profile__userCard__avatarContainer'>
             <img

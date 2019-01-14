@@ -12,7 +12,7 @@ class PostArticle extends Component {
   render() {
     const { topics, path } = this.props;
     return (
-      <section className='content-well content-well--shortcontent'>
+      <section className='content-well'>
         {path === '/post-article' ? (
           <h1 className='title title--post'>Post an Article</h1>
         ) : (
@@ -56,10 +56,7 @@ class PostArticle extends Component {
               );
             })}
           </select>
-          <button
-            type='submit'
-            className='button button--submit button--submit--postarticle'
-          >
+          <button type='submit' className='button button--submit'>
             Post
           </button>
         </form>

@@ -2,17 +2,22 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  padding-bottom: 20px;
+  padding: 0 20px 20px 20px;
+  width: 100%;
+  max-width: 600px;
+  min-width: 300px;
+  margin: 0 auto;
 }
 
 .postCommentForm__textarea {
   height: 200px;
   padding: 10px;
-  margin: 20px;
+  margin: 10px auto;
   background: transparent;
   outline: none;
   border: solid 1px var(--LSG-3);
   font-size: 14px;
+  width: 100%;
 }
 
 .button--submit {

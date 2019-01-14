@@ -3,12 +3,26 @@
   flex-direction: row;
   justify-content: space-around;
   padding: 0;
-  margin: 50px;
+  margin: 50px 0;
   height: 100px;
-  width: 400px;
+  max-width: 400px;
+  min-width: 300px;
   background-color: var(--LSG-1);
   border: 2px solid var(--LSG-3);
   border-radius: 20px 10px 10px 20px;
+}
+
+@media only screen and (max-width: 350px) {
+  .profile__userCard {
+    max-width: 300px;
+  }
+  .profile__user_avatar {
+    height: 100px;
+    width: 100px;
+  }
+  .profile__userCard__avatarContainer {
+    max-width: 100px;
+  }
 }
 
 .profile__user_avatar {
@@ -27,7 +41,8 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   padding: 10px;
 }
 

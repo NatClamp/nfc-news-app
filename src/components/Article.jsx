@@ -20,46 +20,39 @@ class Article extends Component {
         <p>Loading...</p>
       </section>
     ) : (
-      <section className='content-well'>
-        <section className='content-well__singleArticle'>
-          <section className='content-well__singleArticle__header'>
-            <section className='content-well__singleArticle__header__left'>
-              <Voting
-                votes={parseInt(articleData.votes)}
-                id={articleData.article_id}
-                type={'article'}
-              />
-            </section>
-            <section className='content-well__singleArticle__header__right'>
-              <h1 className='title'>{articleData.title}</h1>
-              <section className='subTitle'>
-                <section className='details'>
-                  {articleData.author} |{' '}
-                  {moment(articleData.created_at).fromNow()} |{' '}
-                  {articleData.topic} |{' '}
-                </section>
-                {user.username === articleData.author && (
-                  <button
-                    className='button button--delete'
-                    onClick={() => this.handleDelete(this.props.article_id)}
-                  >
-                    Delete
-                  </button>
-                )}
-              </section>
-            </section>
-          </section>
-          <p className='bodyText'>{articleData.body}</p>
-          <section>
-            <Comments
-              commentData={commentData}
-              user_id={user.user_id}
-              username={user.username}
-              articleData={articleData}
-              fetchComments={this.fetchCommentData}
+      <section className='content-well content-well--singleArticle'>
+        <section className='content-well__singleArticle__header'>
+          <section className='content-well__singleArticle__header__left'>
+            <Voting
+              votes={parseInt(articleData.votes)}
+              id={articleData.article_id}
+              type={'article'}
             />
           </section>
+          <section className='content-well__singleArticle__header__right'>
+            <h1 className='title'>{articleData.title}</h1>
+            <section className='subTitle details'>
+              {articleData.author} | {moment(articleData.created_at).fromNow()}{' '}
+              | {articleData.topic} |
+              {user.username === articleData.author && (
+                <button
+                  className='button button--delete'
+                  onClick={() => this.handleDelete(this.props.article_id)}
+                >
+                  Delete
+                </button>
+              )}
+            </section>
+          </section>
         </section>
+        <p className='bodyText'>{articleData.body}</p>
+        <Comments
+          commentData={commentData}
+          user_id={user.user_id}
+          username={user.username}
+          articleData={articleData}
+          fetchComments={this.fetchCommentData}
+        />
       </section>
     );
   }

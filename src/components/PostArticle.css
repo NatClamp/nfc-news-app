@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .postArticleForm__input {
-  width: 80%;
+  width: 100%;
   padding: 10px;
   margin: 5px;
   background: transparent;
@@ -17,7 +19,7 @@
 
 .postArticleForm__textarea {
   height: 200px;
-  width: 80%;
+  width: 100%;
   padding: 10px;
   margin: 5px;
   background: transparent;
@@ -27,7 +29,7 @@
 }
 
 .postArticleForm__select {
-  width: 80%;
+  width: 100%;
   padding: 11px 15px;
   margin: 10px;
   border: solid 1px var(--LSG-3);
@@ -42,8 +44,4 @@
 .postArticleForm__select:focus {
   outline: 3px solid var(--LSG-4);
   outline-offset: -3px;
-}
-
-.button--submit--postarticle {
-  margin-top: 5px;
 }
