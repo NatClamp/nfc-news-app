@@ -14,7 +14,7 @@ class PostTopic extends Component {
     const { topics, user } = this.props;
     const { postComplete, slug, description } = this.state;
     return !postComplete ? (
-      <section className='content-well content-well--shortcontent'>
+      <section className='content-well'>
         <h1 className='title title--post'>Create a Topic</h1>
         <form onSubmit={this.handleSubmit} className='postTopicForm'>
           <input
@@ -41,7 +41,7 @@ class PostTopic extends Component {
         </form>
       </section>
     ) : (
-      <div>{postComplete && <PostArticle user={user} topics={topics} />}</div>
+      <>{postComplete && <PostArticle user={user} topics={topics} />}</>
     );
   }
 

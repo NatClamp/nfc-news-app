@@ -13,12 +13,12 @@ class Articles extends Component {
   };
   render() {
     const { articles, lastPage, currentPage, err, isLoading } = this.state;
-    return isLoading ? (
+    return !err && isLoading ? (
       <section className='content-well'>
         <p>Loading...</p>
       </section>
     ) : err ? (
-      <section className='content-well content-well--noarticles'>
+      <section className='content-well'>
         <h1 className='title title--404'>Oh no!</h1>
         <h2 className='description description--noarticles'>
           There aren't any articles in this topic yet. <br />
@@ -27,6 +27,7 @@ class Articles extends Component {
         <button className='button' onClick={this.handleNavToPost}>
           Post article
         </button>
+        <br />
       </section>
     ) : (
       <section className='content-well'>
