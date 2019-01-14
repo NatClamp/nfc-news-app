@@ -19,6 +19,7 @@ class Comments extends Component {
       fetchComments,
       lastCommentPage,
     } = this.props;
+    const { comment_count } = articleData;
     commentData = !Array.isArray(commentData) ? [commentData] : commentData;
     return (
       <>
@@ -54,7 +55,6 @@ class Comments extends Component {
             ))}
 
           {
-            // articleData.comment_count >= 10 &&
             <section className='pageNav'>
               <button
                 className={
@@ -69,12 +69,14 @@ class Comments extends Component {
               </button>
               <button
                 className={
-                  lastCommentPage === true || articleData.comment_count == 10
+                  lastCommentPage === true || parseInt(comment_count) <= 10
                     ? 'button button--pagination button--disabled'
                     : 'button button--pagination'
                 }
                 onClick={this.handleNextPage}
-                disabled={lastCommentPage === true}
+                disabled={
+                  lastCommentPage === true || parseInt(comment_count) <= 10
+                }
               >
                 Next Page
               </button>

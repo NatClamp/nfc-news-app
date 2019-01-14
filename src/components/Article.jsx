@@ -61,27 +61,32 @@ class Article extends Component {
 
   componentDidMount() {
     this.fetchArticleData(this.props.article_id);
-    this.fetchCommentData(this.props.article_id);
   }
 
   fetchArticleData = article_id => {
     api
       .getArticle(article_id)
       .then(articleData => {
-        this.setState({
-          articleData,
-          isLoading: false,
-        });
+        this.setState(
+          {
+            articleData,
+            isLoading: false,
+          },
+          () => this.fetchCommentData(this.props.article_id),
+        );
       })
       .catch(err => navigate('/404', { replace: true }));
   };
 
   fetchCommentData = (article_id, page) => {
     const { articleData } = this.state;
+    const { comment_count } = articleData;
     api.getComments(article_id, page).then(commentData => {
-      if (articleData.comment_count / 10 <= page) {
+      if (comment_count / 10 <= page) {
         this.setState({ commentData, lastCommentPage: true });
-      } else this.setState({ commentData, lastCommentPage: false });
+      } else {
+        this.setState({ commentData, lastCommentPage: false });
+      }
     });
   };
 
