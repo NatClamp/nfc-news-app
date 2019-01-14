@@ -46,7 +46,9 @@ class Article extends Component {
             </section>
           </section>
         </section>
-        <p className='bodyText'>{articleData.body}</p>
+        <section className='bodyTextContainer'>
+          <p className='bodyText'>{articleData.body}</p>
+        </section>
         <Comments
           commentData={commentData}
           user_id={user.user_id}
