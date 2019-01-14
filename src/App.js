@@ -18,8 +18,9 @@ import {
   faBars,
   faArrowUp,
   faArrowDown,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-library.add(faBars, faArrowUp, faArrowDown);
+library.add(faBars, faArrowUp, faArrowDown, faTimes);
 
 class App extends Component {
   state = {
@@ -32,7 +33,11 @@ class App extends Component {
     return (
       <div className='App'>
         <Auth login={this.login} user={user}>
-          <Header toggleNav={this.toggleNav} goHome={this.goHome} />
+          <Header
+            toggleNav={this.toggleNav}
+            goHome={this.goHome}
+            navOpen={navOpen}
+          />
           <Nav
             navOpen={navOpen}
             logout={this.logout}
