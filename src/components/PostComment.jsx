@@ -11,7 +11,6 @@ class PostComment extends Component {
     return (
       <section className='postCommentContainer'>
         <form onSubmit={this.handleSubmit} className='postCommentForm'>
-          {/* <label htmlFor='body'>Comment:</label> */}
           <textarea
             type='text'
             id='body'

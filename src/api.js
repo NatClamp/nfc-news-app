@@ -37,10 +37,11 @@ export const postArticle = async (topic, newArticle) => {
   return data.article;
 };
 
-export const getComments = async article_id => {
-  const { data } = await axios.get(
-    `${BASE_URL}/articles/${article_id}/comments`,
-  );
+export const getComments = async (article_id, page) => {
+  let URL = !page
+    ? `${BASE_URL}/articles/${article_id}/comments`
+    : `${BASE_URL}/articles/${article_id}/comments?p=${page}`;
+  const { data } = await axios.get(URL);
   return data.comments;
 };
 

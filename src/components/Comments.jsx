@@ -6,13 +6,18 @@ import Voting from './Voting';
 import * as api from '../api';
 
 class Comments extends Component {
+  state = {
+    currentPage: 1,
+  };
   render() {
+    const { currentPage } = this.state;
     let {
       commentData,
       user_id,
       username,
       articleData,
       fetchComments,
+      lastCommentPage,
     } = this.props;
     commentData = !Array.isArray(commentData) ? [commentData] : commentData;
     return (
@@ -47,6 +52,34 @@ class Comments extends Component {
                 <section className='comment__body'>{comment.body}</section>
               </article>
             ))}
+
+          {
+            // articleData.comment_count >= 10 &&
+            <section className='pageNav'>
+              <button
+                className={
+                  currentPage === 1
+                    ? 'button button--pagination button--disabled'
+                    : 'button button--pagination'
+                }
+                onClick={this.handlePrevPage}
+                disabled={currentPage === 1}
+              >
+                Previous Page
+              </button>
+              <button
+                className={
+                  lastCommentPage === true || articleData.comment_count == 10
+                    ? 'button button--pagination button--disabled'
+                    : 'button button--pagination'
+                }
+                onClick={this.handleNextPage}
+                disabled={lastCommentPage === true}
+              >
+                Next Page
+              </button>
+            </section>
+          }
         </section>
       </>
     );
@@ -57,6 +90,32 @@ class Comments extends Component {
     api.deleteComment(articleData.article_id, comment_id).then(() => {
       fetchComments(articleData.article_id);
     });
+  };
+
+  handleNextPage = () => {
+    const { articleData, fetchComments } = this.props;
+    this.setState(
+      prevState => {
+        prevState.currentPage++;
+      },
+      () => {
+        const { currentPage } = this.state;
+        fetchComments(articleData.article_id, currentPage);
+      },
+    );
+  };
+
+  handlePrevPage = () => {
+    const { articleData, fetchComments } = this.props;
+    this.setState(
+      prevState => {
+        prevState.currentPage--;
+      },
+      () => {
+        const { currentPage } = this.state;
+        fetchComments(articleData.article_id, currentPage);
+      },
+    );
   };
 }
 

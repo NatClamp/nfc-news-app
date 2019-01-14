@@ -11,9 +11,10 @@ class Article extends Component {
     articleData: {},
     commentData: [],
     isLoading: true,
+    lastCommentPage: false,
   };
   render() {
-    const { articleData, commentData, isLoading } = this.state;
+    const { articleData, commentData, isLoading, lastCommentPage } = this.state;
     const { user } = this.props;
     return isLoading ? (
       <section className='content-well'>
@@ -52,6 +53,7 @@ class Article extends Component {
           username={user.username}
           articleData={articleData}
           fetchComments={this.fetchCommentData}
+          lastCommentPage={lastCommentPage}
         />
       </section>
     );
@@ -74,9 +76,12 @@ class Article extends Component {
       .catch(err => navigate('/404', { replace: true }));
   };
 
-  fetchCommentData = article_id => {
-    api.getComments(article_id).then(commentData => {
-      this.setState({ commentData });
+  fetchCommentData = (article_id, page) => {
+    const { articleData } = this.state;
+    api.getComments(article_id, page).then(commentData => {
+      if (articleData.comment_count / 10 <= page) {
+        this.setState({ commentData, lastCommentPage: true });
+      } else this.setState({ commentData, lastCommentPage: false });
     });
   };
 

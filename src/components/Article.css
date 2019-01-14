@@ -44,7 +44,7 @@
   font-size: 1.5em;
   text-align: left;
   color: var(--LSG-7);
-  margin: auto;
+  margin: 0;
 }
 
 .subTitle {
