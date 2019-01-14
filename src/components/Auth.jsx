@@ -14,32 +14,34 @@ class Auth extends Component {
       children
     ) : (
       <div className='authPageContainer'>
-        <section className='authPage__main'>
-          <section className='authPage__header'>
-            <h1 className='title title--auth'>NFC-news</h1>
-            <h3 className='subTitle--auth'>Login</h3>
+        <main className='loginContainer'>
+          <h1 className='title title--auth'>NFC-News</h1>
+          <section className='authPage__main'>
+            <section className='authPage__header'>
+              <h3 className='subTitle--auth'>Please login to your account</h3>
+            </section>
+            <form onSubmit={this.handleSubmit} className='authPage__form'>
+              <div className='authPage__form__username'>
+                <label htmlFor='username' className='authPage__form__label'>
+                  Username:
+                </label>
+                <input
+                  type='text'
+                  id='username'
+                  value={username}
+                  onChange={this.handleUsername}
+                  className='authPage__form__input'
+                />
+              </div>
+              <div className='authPage__form__submit'>
+                <button type='submit' className='button'>
+                  Login
+                </button>
+              </div>
+            </form>
+            {failedAttempt && <p>Incorrect username</p>}
           </section>
-          <form onSubmit={this.handleSubmit}>
-            <section className='authPage__form'>
-              <label htmlFor='username' className='authPage__form__label'>
-                Username:
-              </label>
-              <input
-                type='text'
-                id='username'
-                value={username}
-                onChange={this.handleUsername}
-                className='authPage__form__input'
-              />
-            </section>
-            <section className='authPage__main__Element'>
-              <button type='submit' className='button button--login'>
-                Login
-              </button>
-            </section>
-          </form>
-          {failedAttempt && <p>Incorrect username</p>}
-        </section>
+        </main>
       </div>
     );
   }
