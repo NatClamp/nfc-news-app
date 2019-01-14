@@ -26,6 +26,7 @@
 
 .invisibleButton {
   border: none;
+  background-color: transparent;
 }
 
 .invisibleButton--comment {

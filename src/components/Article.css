@@ -1,6 +1,10 @@
 .content-well__singleArticle {
   padding-top: 30px;
-  width: 600px;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
