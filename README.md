@@ -1,6 +1,6 @@
 # NFC-News
 
-NFC is a social news aggregration, much like [Reddit](https://www.reddit.com/), built as a project during the Front-End module of my time at Northcoders to practive making a C.R.U.D application. NFC-News displays articles with user-ratings and comments (each with their own ratings), which are divided into topics. Users can browse, vote and comment on articles. They can also vote on existing comments, as well as add new topics and post new articles.
+NFC is a social news aggregration, much like [Reddit](https://www.reddit.com/), built as a project during the Front-End module of my time at Northcoders. NFC-News displays articles with a user-rating and comments (each with their own rating), which are divided into topics. Users can browse, vote and comment on articles. They can also vote on existing comments, as well as add new topics and post new articles.
 
 Deployed on netlify [here](https://nfc-news.netlify.com/).
 
