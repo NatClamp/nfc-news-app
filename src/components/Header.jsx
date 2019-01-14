@@ -6,12 +6,14 @@ const Header = ({ toggleNav, goHome }) => {
   return (
     <div className='header'>
       <section className='header__content'>
-        <button onClick={goHome} className='button'>
-          Home
-        </button>
-        <h1>NFC news</h1>
         <button className='button__hamburger' onClick={toggleNav}>
           <FontAwesomeIcon icon='bars' />
+        </button>
+        <button
+          onClick={goHome}
+          className='invisibleButton invisibleButton--header'
+        >
+          <h1>NFC news</h1>
         </button>
       </section>
     </div>

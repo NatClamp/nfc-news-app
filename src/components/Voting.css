@@ -21,6 +21,7 @@
   border: none;
   padding: 5px;
   color: var(--LSG-6);
+  font-size: 28px;
 }
 
 .invisibleButton {
