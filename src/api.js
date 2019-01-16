@@ -15,11 +15,17 @@ export const postTopic = async (slug, description) => {
   return data.topic;
 };
 
-export const getArticles = async (page, topic) => {
+export const getArticles = async (page, topic, sort_by) => {
   let URL = topic
     ? `${BASE_URL}/topics/${topic}/articles`
     : `${BASE_URL}/articles`;
-  if (page !== null) URL = `${URL}?p=${page}`;
+  if (page !== null) {
+    sort_by === undefined
+      ? (URL = `${URL}?p=${page}`)
+      : (URL = `${URL}?p=${page}&sort_by=${sort_by}`);
+  } else if (page === null && sort_by !== undefined) {
+    URL = `${URL}?sort_by=${sort_by}`;
+  }
   const { data } = await axios.get(`${URL}`);
   return data.articles;
 };
