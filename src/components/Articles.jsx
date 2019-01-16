@@ -19,7 +19,7 @@ class Articles extends Component {
       </section>
     ) : err ? (
       <section className='content-well'>
-        <h1 className='title title--404'>Oh no!</h1>
+        <h1 className='title title--noarticles'>Oh no!</h1>
         <h2 className='description description--noarticles'>
           There aren't any articles in this topic yet. <br />
           Fancy writing the first?

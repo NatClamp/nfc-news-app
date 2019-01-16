@@ -32,3 +32,16 @@
 .description--noarticles {
   margin: 30px 10px;
 }
+
+.title {
+  font-size: 1.5em;
+  text-align: left;
+  color: var(--LSG-7);
+  margin: 0;
+}
+
+.title--noarticles {
+  font-size: 4.5em;
+  padding: 10px;
+  margin: 10px;
+}
