@@ -7,7 +7,6 @@ import Nav from './components/Nav';
 import Articles from './components/Articles';
 import Footer from './components/Footer';
 import Article from './components/Article';
-import Users from './components/Users';
 import User from './components/User';
 import Auth from './components/Auth';
 import PostTopic from './components/PostTopic';
@@ -59,7 +58,7 @@ class App extends Component {
               user={user}
               topics={this.state.topics}
             />
-            <Users path='/users' />
+            {/* <Users path='/users' /> */}
             <User path='/user/:username' />
             <Errors path='/404' goHome={this.goHome} />
           </Router>

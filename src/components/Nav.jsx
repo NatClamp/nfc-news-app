@@ -34,9 +34,6 @@ class Nav extends Component {
               Create Article
             </button>
             <h2 className='title--nav'>Other</h2>
-            <button className='button' onClick={this.navToUsers}>
-              Users
-            </button>
             <button onClick={logout} className='button button--nav--danger'>
               logout
             </button>
