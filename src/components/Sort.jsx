@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Sort.css';
 
 class Sort extends Component {
   state = {
@@ -7,15 +8,14 @@ class Sort extends Component {
   render() {
     return (
       <section className='sortBar'>
-        <form>
+        <form className='sortBar_form'>
           <select
             id='sort_by'
             value={this.state.sort_by}
             onChange={this.handleChange}
+            className='sortBar__select'
           >
-            <option defaultselected='true' hidden>
-              Sort
-            </option>
+            ><option hidden>Sort</option>
             <option value={this.state.created_at}>New</option>
             <option value={this.state.votes}>Popular</option>
             <option value={this.state.comment_count}>Trending</option>
