@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Articles.css';
 import * as api from '../api';
 import Cards from './Cards';
+import Sort from './Sort';
 
 class Articles extends Component {
   state = {
@@ -10,6 +11,7 @@ class Articles extends Component {
     lastPage: false,
     isLoading: true,
     err: null,
+    sort_by: null,
   };
   render() {
     const { articles, lastPage, currentPage, err, isLoading } = this.state;
@@ -31,6 +33,7 @@ class Articles extends Component {
       </section>
     ) : (
       <section className='content-well'>
+        <Sort fetchArticles={this.fetchArticles} topic={this.props.topic} />
         <Cards articles={articles} />
         <section className='pageNav'>
           <button
@@ -64,11 +67,11 @@ class Articles extends Component {
     this.fetchArticles(this.props.topic);
   }
 
-  fetchArticles = topic => {
-    const apiCall =
-      this.state.currentPage !== 1
-        ? api.getArticles(this.state.currentPage, topic)
-        : api.getArticles(null, topic);
+  fetchArticles = (topic, sort_by) => {
+    if (sort_by) this.setState({ sort_by });
+    const apiCall = sort_by
+      ? api.getArticles(this.state.currentPage, topic, sort_by)
+      : api.getArticles(this.state.currentPage, topic);
     apiCall
       .then(articles => {
         articles = !Array.isArray(articles) ? [articles] : articles;
@@ -86,7 +89,7 @@ class Articles extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.props.topic !== prevProps.topic) {
       this.setState({ currentPage: 1, err: null }, () => {
-        this.fetchArticles(this.props.topic);
+        this.fetchArticles(this.props.topic, this.state.sort_by);
       });
     }
   }
@@ -97,16 +100,20 @@ class Articles extends Component {
         prevState.currentPage++;
       },
       () => {
-        this.fetchArticles(this.props.topic);
+        this.fetchArticles(this.props.topic, this.state.sort_by);
       },
     );
   };
 
   handlePrevPage = () => {
-    this.setState(prevState => {
-      prevState.currentPage--;
-      this.fetchArticles(this.props.topic);
-    });
+    this.setState(
+      prevState => {
+        prevState.currentPage--;
+      },
+      () => {
+        this.fetchArticles(this.props.topic, this.state.sort_by);
+      },
+    );
   };
 
   handleNavToPost = () => {
