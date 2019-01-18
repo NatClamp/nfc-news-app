@@ -1,7 +1,11 @@
+.loadingAnimation {
+  padding: 20px;
+  padding: 10px;
+}
 .load-wrapp {
   width: 100px;
   height: 100px;
-  margin: 50px;
+  margin: 20px;
   padding: 20px 20px 20px;
 }
 

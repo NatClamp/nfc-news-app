@@ -19,7 +19,9 @@ class Articles extends Component {
     return !err && isLoading ? (
       <section className='content-well'>
         <Sort fetchArticles={this.fetchArticles} topic={this.props.topic} />
-        <Loading />
+        <div className='loadingAnimation'>
+          <Loading />
+        </div>
       </section>
     ) : err ? (
       <section className='content-well'>

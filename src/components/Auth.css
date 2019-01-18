@@ -19,7 +19,7 @@
 }
 
 .authPage__main {
-  height: 300px;
+  min-height: 300px;
   background-color: #fff;
   max-width: 800px;
   width: 100%;
@@ -43,7 +43,6 @@
   padding-bottom: 5px;
   font-weight: 400;
   font-style: italic;
-  /* font-family: 'Roboto', sans-serif; */
 }
 
 .subTitle--auth {
@@ -89,4 +88,31 @@
   width: 100%;
   margin: 5px auto;
   text-align: center;
+}
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.authPage__header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.load-wrapp--auth {
+  margin: 0;
+  padding: 0;
 }
