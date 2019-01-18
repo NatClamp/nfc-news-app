@@ -3,6 +3,7 @@ import './Articles.css';
 import * as api from '../api';
 import Cards from './Cards';
 import Sort from './Sort';
+import Loading from './Loading';
 
 class Articles extends Component {
   state = {
@@ -17,7 +18,8 @@ class Articles extends Component {
     const { articles, lastPage, currentPage, err, isLoading } = this.state;
     return !err && isLoading ? (
       <section className='content-well'>
-        <p>Loading...</p>
+        <Sort fetchArticles={this.fetchArticles} topic={this.props.topic} />
+        <Loading />
       </section>
     ) : err ? (
       <section className='content-well'>
@@ -68,6 +70,7 @@ class Articles extends Component {
   }
 
   fetchArticles = (topic, sort_by) => {
+    this.setState({ isLoading: true });
     if (sort_by) this.setState({ sort_by });
     const apiCall = sort_by
       ? api.getArticles(this.state.currentPage, topic, sort_by)

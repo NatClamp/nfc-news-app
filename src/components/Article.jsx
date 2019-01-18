@@ -5,6 +5,7 @@ import * as api from '../api';
 import Voting from './Voting';
 import Comments from './Comments';
 import { navigate } from '@reach/router';
+import Loading from './Loading';
 
 class Article extends Component {
   state = {
@@ -18,7 +19,7 @@ class Article extends Component {
     const { user } = this.props;
     return isLoading ? (
       <section className='content-well'>
-        <p>Loading...</p>
+        <Loading />
       </section>
     ) : (
       <section className='content-well content-well--singleArticle'>
