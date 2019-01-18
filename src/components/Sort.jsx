@@ -8,26 +8,53 @@ class Sort extends Component {
   render() {
     return (
       <section className='sortBar'>
-        <form className='sortBar_form'>
-          <select
-            id='sort_by'
-            value={this.state.sort_by}
+        <div className='sortOption'>
+          <input
+            className='app-nav__input'
+            name='sort_by'
+            type='radio'
+            value='New'
+            id='New'
             onChange={this.handleChange}
-            className='sortBar__select'
-          >
-            ><option hidden>Sort</option>
-            <option value={this.state.created_at}>New</option>
-            <option value={this.state.votes}>Popular</option>
-            <option value={this.state.comment_count}>Trending</option>
-          </select>
-        </form>
+            defaultChecked
+          />
+          <label className='sortLabel' htmlFor='New'>
+            New
+          </label>
+        </div>
+        <div className='sortOption'>
+          <input
+            className='app-nav__input'
+            name='sort_by'
+            type='radio'
+            value='Popular'
+            id='Popular'
+            onChange={this.handleChange}
+          />
+          <label className='sortLabel' htmlFor='Popular'>
+            Popular
+          </label>
+        </div>
+        <div className='sortOption'>
+          <input
+            className='app-nav__input'
+            name='sort_by'
+            type='radio'
+            value='Trending'
+            id='Trending'
+            onChange={this.handleChange}
+          />
+          <label className='sortLabel' htmlFor='Trending'>
+            Trending
+          </label>
+        </div>
       </section>
     );
   }
 
   handleChange = event => {
     const { fetchArticles, topic } = this.props;
-    const { id, value } = event.target;
+    const { name, value } = event.target;
     const lookup = {
       New: 'created_at',
       Popular: 'votes',
@@ -36,7 +63,7 @@ class Sort extends Component {
 
     this.setState(
       {
-        [id]: lookup[value].toLowerCase(),
+        [name]: lookup[value].toLowerCase(),
       },
       () => fetchArticles(topic, this.state.sort_by),
     );

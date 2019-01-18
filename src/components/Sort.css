@@ -1,30 +1,39 @@
 .sortBar {
   width: 100%;
   max-width: 600px;
-  padding: 5px;
+  padding: 5px 5px 0 5px;
   margin-top: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.sortBar_form {
-  width: 30%;
-  height: 100%;
-  /* max-width: 100px; */
-  padding: 5px;
+.sortOption {
+  flex: 1;
+  text-align: center;
+  position: relative;
 }
 
-.sortBar__select {
-  padding: 15px;
-  width: 100%;
-  border: solid 1px var(--LSG-3);
-  border-radius: 0;
-  font-size: 12px;
-  color: var(--LSG-5);
-  font-family: 'Roboto';
+.sortLabel {
   text-transform: uppercase;
-  text-align: center;
-  transition: border-color 0.2s ease, outline 0.2s ease;
-  background: transparentize(var(--LSG-2, 0.9));
+  cursor: pointer;
+  color: var(--LSG-4);
+  font-weight: bold;
+  font-size: 0.75em;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 5px;
+  width: 100%;
+  border-bottom: 3px solid transparent;
+}
+
+.app-nav__input {
+  opacity: 0;
+  position: absolute;
+  left: -1000px;
+}
+.app-nav__input:checked + label {
+  color: var(--LSG-2);
+  cursor: inherit;
+  border-bottom: 3px solid var(--LSG-4);
 }
