@@ -1,39 +1,16 @@
 .profile__userCard {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   padding: 0;
-  margin: 50px 0;
-  height: 100px;
-  max-width: 400px;
-  min-width: 300px;
-  background-color: var(--LSG-1);
-  border: 2px solid var(--LSG-3);
-  border-radius: 20px 10px 10px 20px;
-}
-
-@media only screen and (max-width: 350px) {
-  .profile__userCard {
-    max-width: 300px;
-  }
-  .profile__user_avatar {
-    height: 100px;
-    width: 100px;
-  }
-  .profile__userCard__avatarContainer {
-    max-width: 100px;
-  }
+  margin: 10px 0;
+  height: 100%;
 }
 
 .profile__user_avatar {
-  position: relative;
-  border-radius: 50%;
-  width: 120px;
   height: 120px;
-  left: -25px;
-  top: -15px;
-  border: 5px solid var(--LSG-3);
-  background-color: var(--ONYX-1);
+  margin: 20px;
 }
 
 .profile__userCard__textContainer {
@@ -44,6 +21,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
+  height: 100%;
 }
 
 .profile__userCard__textContainer * {
@@ -62,4 +40,37 @@
   font-weight: 300;
   font-size: 1em;
   letter-spacing: 0.7px;
+}
+
+.userArticleCards {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.userArticleCards h2 {
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Roboto';
+}
+
+@media only screen and (max-width: 350px) {
+  .profile__userCard {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .profile__user_avatar {
+    height: 100px;
+  }
+  .profile__userCard__avatarContainer {
+    max-height: 130px;
+  }
+  .profile__userCard__textContainer {
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: 100%;
+  }
 }
