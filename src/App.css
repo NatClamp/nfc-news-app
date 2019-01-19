@@ -50,8 +50,8 @@
 }
 
 .button {
-  color: var(--LSG-5);
-  border: 1px solid var(--LSG-5);
+  color: var(--LSG-6);
+  border: 1px solid var(--LSG-6);
   border-radius: 5px;
   padding: 7px 10px;
   text-transform: uppercase;
@@ -62,12 +62,12 @@
 
 .button:hover {
   color: var(--ONYX-1);
-  background-color: var(--LSG-5);
+  background-color: var(--LSG-6);
 }
 
 a:link,
 a:visited {
-  color: var(--LSG-5);
+  color: var(--LSG-7);
 }
 
 a:hover {

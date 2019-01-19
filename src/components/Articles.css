@@ -7,9 +7,10 @@
 }
 
 .button--pagination {
-  background-color: var(--LSG-5);
-  color: var(--ONYX-1);
+  background-color: var(--LSG-6);
+  color: #fff;
   font-size: 0.8em;
+  border: 1px solid var(--LSG-7);
 }
 
 .button--pagination:hover {

@@ -6,7 +6,11 @@ const Header = ({ toggleNav, goHome, navOpen }) => {
   return (
     <div className='header'>
       <section className='header__content'>
-        <button className='button__hamburger' onClick={toggleNav}>
+        <button
+          className='button__hamburger'
+          onClick={toggleNav}
+          value='open navigation'
+        >
           {!navOpen ? (
             <FontAwesomeIcon icon='bars' />
           ) : (

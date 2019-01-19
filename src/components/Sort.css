@@ -16,7 +16,7 @@
 .sortLabel {
   text-transform: uppercase;
   cursor: pointer;
-  color: var(--LSG-4);
+  color: var(--LSG-7);
   font-weight: bold;
   font-size: 0.75em;
   letter-spacing: 1px;
@@ -32,7 +32,7 @@
   left: -1000px;
 }
 .app-nav__input:checked + label {
-  color: var(--LSG-2);
+  color: var(--LSG-6);
   cursor: inherit;
-  border-bottom: 3px solid var(--LSG-4);
+  border-bottom: 3px solid var(--LSG-2);
 }
